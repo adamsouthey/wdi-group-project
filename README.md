@@ -1,5 +1,3 @@
 # wdi-group-project
 
-
-
-will
+Amadea

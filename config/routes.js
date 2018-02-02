@@ -2,17 +2,17 @@ const express = require('express');
 const router  = express.Router();
 const auth = require('../controllers/auth');
 const meetup = require('../controllers/meetup');
-// const secureRoute = require('../lib/secureRoute');
-// const groups = require('../controllers/groups');
+const secureRoute = require('../lib/secureRoute');
+const groups = require('../controllers/groups');
 //
-// router.route('/groups')
-//   .all(secureRoute)
-//   .get(groups.index)
+router.route('/groups')
+  .all(secureRoute)
+  .get(groups.index);
 //   .post(groups.create);
 //
-// router.route('/groups/:id')
-//   .all(secureRoute)
-//   .get(groups.show)
+router.route('/groups/:id')
+  .all(secureRoute)
+  .get(groups.show);
 //   .put(groups.update)
 //   .delete(groups.delete);
 

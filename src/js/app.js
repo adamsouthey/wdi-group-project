@@ -1,1 +1,2 @@
-// angular module goes here
+angular
+  .module('eventApp', ['ui.router', 'ngResource', 'satellizer']);

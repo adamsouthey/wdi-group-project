@@ -29,17 +29,20 @@
               <a class="navbar-item is-active" ui-sref="/">
                 Home
               </a>
-              <a class="navbar-item" ui-sref="groupsIndex">
+              <a class="navbar-item" ui-sref="groupsIndex" ng-if="main.isAuthenticated()">
                 Events
               </a>
-              <a class="navbar-item" ui-sref="/">
+              <a class="navbar-item" ui-sref="/" ng-if="main.isAuthenticated()">
                 Profile
               </a>
-              <a class="navbar-item" ui-sref="login">
+              <a class="navbar-item" ui-sref="login" ng-if="!main.isAuthenticated()">
                 Login
               </a>
-              <a class="navbar-item" ui-sref="register">
+              <a class="navbar-item" ui-sref="register" ng-if="!main.isAuthenticated()">
                 Register
+              </a>
+              <a class="navbar-item" ui-sref="/" ng-click="main.logout()" ng-if="main.isAuthenticated()">
+                Logout
               </a>
                 </a>
               </span>
@@ -48,6 +51,8 @@
         </div>
       </nav>
     </div>
+
+    <div class="notification" ng-if="main.message">{{ main.message }}</div>
 
     <main ui-view></main>
 

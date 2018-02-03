@@ -1,6 +1,6 @@
 module.exports = {
   port: process.env.PORT || 4000,
-  env: process.env.NODE_ENV,
+  env: process.env.NODE_ENV || 'development' || 'test',
   secret: process.env.SECRET || 'shh',
   db: {
     production: process.env.MONGODB_URI,

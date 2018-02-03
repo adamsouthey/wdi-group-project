@@ -1,5 +1,9 @@
-<ul id="groups">
-  <li ng-repeat="group in vm.all">
-    {{ group.name }}
-  </li>
-</ul>
+<div>
+  <div class="row">
+    <div ng-repeat="group in vm.all" class="col-md-3">
+
+      <p> {{ group.name }} </p>
+
+    </div>
+    </div>
+  </div>

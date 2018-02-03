@@ -5,7 +5,6 @@ const Group = require('../models/group');
 const { db, env } = require('../config/environment');
 mongoose.connect(db[env]);
 
-
 User.collection.drop();
 Group.collection.drop();
 

@@ -1,1 +1,26 @@
-<h1>index</h1>
+<!DOCTYPE html>
+<html ng-app="eventApp">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>Angular Filter with Tests</title>
+  <!-- inject:js -->
+  <!-- endinject -->
+  <!-- inject:css -->
+  <!-- endinject -->
+</head>
+<body>
+  <div ng-controller="GroupsIndexCtrl as groupIndex">
+    <div class="row">
+      <div ng-repeat="group in groupIndex" class="col-md-3">
+
+        <p> {{ group.name }} </p>
+
+      </div>
+      </div>
+    </div>
+
+
+
+</body>
+</html>

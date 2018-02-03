@@ -22,7 +22,7 @@ router.route('/register')
 router.route('/login')
   .post(auth.login);
 
-router.route('/events')
-  .get(meetup.proxy);
+// router.route('/events')
+//   .get(meetup.proxy);
 
 module.exports = router;

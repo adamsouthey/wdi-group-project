@@ -22,12 +22,29 @@ angular
   .module('eventApp')
   .controller('GroupsIndexCtrl', GroupsIndexCtrl);
 
-
-GroupsIndexCtrl.$inject = ['$http', 'Group'];
-function GroupsIndexCtrl($http, Group) {
+GroupsIndexCtrl.$inject = ['$http', 'Group', 'filterFilter', '$scope'];
+function GroupsIndexCtrl($http, Group, filterFilter, $scope) {
   const vm = this;
 
-  vm.all = Group.query();
+  Group
+    .query()
+    .$promise
+    .then((groups) => {
+      vm.all = groups;
+      filterGroup();
+    });
+
+  function filterGroup() {
+    const params = { name: vm.query };
+    vm.filtered = filterFilter(vm.all, params);
+    console.log('firing');
+  }
+
+  filterGroup();
+
+  $scope.$watch(() => vm.query, filterGroup);
+
+  vm.filterGroup = filterGroup;
 
 
   // $http

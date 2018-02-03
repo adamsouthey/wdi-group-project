@@ -29,15 +29,32 @@ User
     console.log(`${users.length} users created!`);
 
     return Group.create([{
-      name: 'Learn to Code'
+      name: 'Learn to Code',
+      image: 'https://www.deeperblue.com/wp-content/uploads/2017/04/AdobeStock_62687098.jpeg'
     },{
-      name: 'Learn to Code'
+      name: 'Learn to Code',
+      image: 'https://www.deeperblue.com/wp-content/uploads/2017/04/AdobeStock_62687098.jpeg'
     },{
-      name: 'Learn to Code'
+      name: 'Learn to Code',
+      image: 'https://www.deeperblue.com/wp-content/uploads/2017/04/AdobeStock_62687098.jpeg'
     },{
-      name: 'Learn to Code'
+      name: 'Learn to Code',
+      image: 'https://www.deeperblue.com/wp-content/uploads/2017/04/AdobeStock_62687098.jpeg'
     },{
-      name: 'Learn to Code'
+      name: 'Learn to Code with Amadayeahhh',
+      image: 'https://www.deeperblue.com/wp-content/uploads/2017/04/AdobeStock_62687098.jpeg'
+    },{
+      name: 'Learn to Code with Heath',
+      image: 'https://www.deeperblue.com/wp-content/uploads/2017/04/AdobeStock_62687098.jpeg'
+    },{
+      name: 'Learn to Code with Will "i dont queue" Stearn',
+      image: 'https://www.deeperblue.com/wp-content/uploads/2017/04/AdobeStock_62687098.jpeg'
+    },{
+      name: 'Learn to Code with Emily',
+      image: 'https://www.deeperblue.com/wp-content/uploads/2017/04/AdobeStock_62687098.jpeg'
+    },{
+      name: 'Learn to Code with Guy',
+      image: 'https://www.deeperblue.com/wp-content/uploads/2017/04/AdobeStock_62687098.jpeg'
     }]);
   })
   .then((groups) => {

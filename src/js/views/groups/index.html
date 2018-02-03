@@ -1,9 +1,15 @@
 <div>
   <div class="row">
-    <div ng-repeat="group in vm.all" class="col-md-3">
+    <div ng-repeat="group in vm.filtered" class="col-md-3">
 
       <p> {{ group.name }} </p>
+      <img src= "{{ group.image }}">
 
     </div>
-    </div>
   </div>
+</div>
+
+<form class="form-inline">
+  <input ng-model="vm.query" class="form-control mr-sm-2" type="text" placeholder="Search by Group Name">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>

@@ -58,10 +58,12 @@ User
       price: 7
     },{
       name: 'Learn to Code with Emily',
-      image: 'https://www.deeperblue.com/wp-content/uploads/2017/04/AdobeStock_62687098.jpeg'
+      image: 'https://www.deeperblue.com/wp-content/uploads/2017/04/AdobeStock_62687098.jpeg',
+      price: 7
     },{
       name: 'Learn to Code with Guy',
-      image: 'https://www.deeperblue.com/wp-content/uploads/2017/04/AdobeStock_62687098.jpeg'
+      image: 'https://www.deeperblue.com/wp-content/uploads/2017/04/AdobeStock_62687098.jpeg',
+      price: 7
     }]);
   })
   .then((groups) => {

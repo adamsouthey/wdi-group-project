@@ -30,40 +30,121 @@ User
 
     return Group.create([{
       name: 'Learn to Code',
+      local_date: '2018-02-08',
+      local_time: '18:00',
+      venue_name: 'Bar Nordic',
+      address_1: '25 Newman St, London, Greater London W1T 1PN',
+      city: 'London',
       image: 'https://www.deeperblue.com/wp-content/uploads/2017/04/AdobeStock_62687098.jpeg',
-      price: 1
+      price: 1,
+      lat: 51.529998779296875,
+      lon: -0.09000000357627869,
+      link: 'https://www.meetup.com/London-New-Tech/events/246826170/',
+      description: 'This event is primarily intended to help TALENT SEEKERS build out their teams and JOB SEEKERS find great places to work. It’s FREE and everyone is welcome to attend. This is part of a series of Meetups that originated in Silicon Valley and is now heading to Silicon Roundabout.'
     },{
       name: 'Learn to Code',
+      local_date: '2018-02-08',
+      local_time: '18:00',
+      venue_name: 'Bar Nordic',
+      address_1: '25 Newman St, London, Greater London W1T 1PN',
+      city: 'London',
       image: 'https://www.deeperblue.com/wp-content/uploads/2017/04/AdobeStock_62687098.jpeg',
-      price: 2
+      price: 2,
+      lat: 51.529998779296875,
+      lon: -0.09000000357627869,
+      link: 'https://www.meetup.com/London-New-Tech/events/246826170/',
+      description: 'This event is primarily intended to help TALENT SEEKERS build out their teams and JOB SEEKERS find great places to work. It’s FREE and everyone is welcome to attend. This is part of a series of Meetups that originated in Silicon Valley and is now heading to Silicon Roundabout.'
     },{
       name: 'Learn to Code',
+      local_date: '2018-02-08',
+      local_time: '18:00',
+      venue_name: 'Bar Nordic',
+      address_1: '25 Newman St, London, Greater London W1T 1PN',
+      city: 'London',
       image: 'https://www.deeperblue.com/wp-content/uploads/2017/04/AdobeStock_62687098.jpeg',
-      price: 3
+      price: 3,
+      lat: 51.529998779296875,
+      lon: -0.09000000357627869,
+      link: 'https://www.meetup.com/London-New-Tech/events/246826170/',
+      description: 'This event is primarily intended to help TALENT SEEKERS build out their teams and JOB SEEKERS find great places to work. It’s FREE and everyone is welcome to attend. This is part of a series of Meetups that originated in Silicon Valley and is now heading to Silicon Roundabout.'
     },{
       name: 'Learn to Code',
+      local_date: '2018-02-08',
+      local_time: '18:00',
+      venue_name: 'Bar Nordic',
+      address_1: '25 Newman St, London, Greater London W1T 1PN',
+      city: 'London',
       image: 'https://www.deeperblue.com/wp-content/uploads/2017/04/AdobeStock_62687098.jpeg',
-      price: 4
+      price: 4,
+      lat: 51.529998779296875,
+      lon: -0.09000000357627869,
+      link: 'https://www.meetup.com/London-New-Tech/events/246826170/',
+      description: 'This event is primarily intended to help TALENT SEEKERS build out their teams and JOB SEEKERS find great places to work. It’s FREE and everyone is welcome to attend. This is part of a series of Meetups that originated in Silicon Valley and is now heading to Silicon Roundabout.'
     },{
       name: 'Learn to Code with Amadayeahhh',
+      local_date: '2018-02-08',
+      local_time: '18:00',
+      venue_name: 'Bar Nordic',
+      address_1: '25 Newman St, London, Greater London W1T 1PN',
+      city: 'London',
       image: 'https://www.deeperblue.com/wp-content/uploads/2017/04/AdobeStock_62687098.jpeg',
-      price: 5
+      price: 5,
+      lat: 51.529998779296875,
+      lon: -0.09000000357627869,
+      link: 'https://www.meetup.com/London-New-Tech/events/246826170/',
+      description: 'This event is primarily intended to help TALENT SEEKERS build out their teams and JOB SEEKERS find great places to work. It’s FREE and everyone is welcome to attend. This is part of a series of Meetups that originated in Silicon Valley and is now heading to Silicon Roundabout.'
     },{
       name: 'Learn to Code with Heath',
+      local_date: '2018-02-08',
+      local_time: '18:00',
+      venue_name: 'Bar Nordic',
+      address_1: '25 Newman St, London, Greater London W1T 1PN',
+      city: 'London',
       image: 'https://www.deeperblue.com/wp-content/uploads/2017/04/AdobeStock_62687098.jpeg',
-      price: 6
+      price: 6,
+      lat: 51.529998779296875,
+      lon: -0.09000000357627869,
+      link: 'https://www.meetup.com/London-New-Tech/events/246826170/',
+      description: 'This event is primarily intended to help TALENT SEEKERS build out their teams and JOB SEEKERS find great places to work. It’s FREE and everyone is welcome to attend. This is part of a series of Meetups that originated in Silicon Valley and is now heading to Silicon Roundabout.'
     },{
       name: 'Learn to Code with Will "i dont queue" Stearn',
+      local_date: '2018-02-08',
+      local_time: '18:00',
+      venue_name: 'Bar Nordic',
+      address_1: '25 Newman St, London, Greater London W1T 1PN',
+      city: 'London',
       image: 'https://www.deeperblue.com/wp-content/uploads/2017/04/AdobeStock_62687098.jpeg',
-      price: 7
+      price: 7,
+      lat: 51.529998779296875,
+      lon: -0.09000000357627869,
+      link: 'https://www.meetup.com/London-New-Tech/events/246826170/',
+      description: 'This event is primarily intended to help TALENT SEEKERS build out their teams and JOB SEEKERS find great places to work. It’s FREE and everyone is welcome to attend. This is part of a series of Meetups that originated in Silicon Valley and is now heading to Silicon Roundabout.'
     },{
       name: 'Learn to Code with Emily',
+      local_date: '2018-02-08',
+      local_time: '18:00',
+      venue_name: 'Bar Nordic',
+      address_1: '25 Newman St, London, Greater London W1T 1PN',
+      city: 'London',
       image: 'https://www.deeperblue.com/wp-content/uploads/2017/04/AdobeStock_62687098.jpeg',
-      price: 7
+      price: 8,
+      lat: 51.529998779296875,
+      lon: -0.09000000357627869,
+      link: 'https://www.meetup.com/London-New-Tech/events/246826170/',
+      description: 'This event is primarily intended to help TALENT SEEKERS build out their teams and JOB SEEKERS find great places to work. It’s FREE and everyone is welcome to attend. This is part of a series of Meetups that originated in Silicon Valley and is now heading to Silicon Roundabout.'
     },{
       name: 'Learn to Code with Guy',
+      local_date: '2018-02-08',
+      local_time: '18:00',
+      venue_name: 'Bar Nordic',
+      address_1: '25 Newman St, London, Greater London W1T 1PN',
+      city: 'London',
       image: 'https://www.deeperblue.com/wp-content/uploads/2017/04/AdobeStock_62687098.jpeg',
-      price: 7
+      price: 9,
+      lat: 51.529998779296875,
+      lon: -0.09000000357627869,
+      link: 'https://www.meetup.com/London-New-Tech/events/246826170/',
+      description: 'This event is primarily intended to help TALENT SEEKERS build out their teams and JOB SEEKERS find great places to work. It’s FREE and everyone is welcome to attend. This is part of a series of Meetups that originated in Silicon Valley and is now heading to Silicon Roundabout.'
     }]);
   })
   .then((groups) => {

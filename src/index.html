@@ -10,7 +10,8 @@
   <!-- endinject -->
 </head>
 <body ng-controller="MainCtrl as main">
-  <section class="hero is-info is-fullheight">
+
+  <!-- <section class="hero is-info is-fullheight">
     <div class="hero-head">
       <nav class="navbar">
         <div class="container">
@@ -44,13 +45,49 @@
               <a class="navbar-item" ui-sref="/" ng-click="main.logout()" ng-if="main.isAuthenticated()">
                 Logout
               </a>
-                </a>
               </span>
             </div>
           </div>
         </div>
       </nav>
-    </div>
+    </div> -->
+
+
+    <nav class="navbar is-info">
+      <div class="navbar-brand">
+        <a class="navbar-item">
+          <p>EventApp</p>
+        </a>
+        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item is-active" ui-sref="home">
+            Home
+          </a>
+          <a class="navbar-item" ui-sref="groupsIndex" ng-if="main.isAuthenticated()">
+            Events
+          </a>
+          <a class="navbar-item" ui-sref="home" ng-if="main.isAuthenticated()">
+            Profile
+          </a>
+          <a class="navbar-item" ui-sref="login" ng-if="!main.isAuthenticated()">
+            Login
+          </a>
+          <a class="navbar-item" ui-sref="register" ng-if="!main.isAuthenticated()">
+            Register
+          </a>
+          <a class="navbar-item" ui-sref="/" ng-click="main.logout()" ng-if="main.isAuthenticated()">
+            Logout
+          </a>
+          </div>
+        </div>
+      </div>
+    </nav>
 
     <div class="notification" ng-if="main.message">{{ main.message }}</div>
 

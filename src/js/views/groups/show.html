@@ -1,1 +1,23 @@
-<h1>SHOW</h1>
+<div class="container is-fluid">
+  <ul class="columns is-multiline">
+    <li class="column is-half">
+      <h3 class="title is-1">{{ vm.group.name }}</h3>
+      <img src="{{ vm.group.image }}" alt="Event image">
+      <p> Price: £ {{ vm.group.price }} </p>
+      <p> Date: {{ vm.group.local_date }} </p>
+      <p> Time: {{ vm.group.local_time }} </p>
+      <p> Venue: {{ vm.group.venue_name }} </p>
+      <p> Address: {{ vm.group.address_1 }} </p>
+      <p> City: {{ vm.group.city }} </p>
+      <p> Link: {{ vm.group.link }} </p>
+      <p> Description: {{ vm.group.description }} </p>
+      <p> Time: {{ vm.group.local_time }} </p>
+
+      <!-- <button class="button is-black" ui-sref="groupsEdit({ id: vm.group.id })">Edit</button> -->
+      <!-- <button class="button is-black" ng-click="vm.delete()">Delete</button> -->
+    </li>
+    <!-- <div class="column is-half">
+      <google-map center="vm.group.location"></google-map>
+    </div> -->
+  </ul>
+</div>

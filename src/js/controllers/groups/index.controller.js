@@ -36,15 +36,25 @@ function GroupsIndexCtrl($http, Group, filterFilter, $scope) {
 
   function filterGroup() {
     const params = { name: vm.query };
+    if(vm.usePrice) params.price = vm.price;
     vm.filtered = filterFilter(vm.all, params);
     console.log('firing');
   }
 
   filterGroup();
 
-  $scope.$watch(() => vm.query, filterGroup);
+  // $scope.$watch(() => vm.query, filterGroup);
+  //
+  // vm.filterGroup = filterGroup;
+  $scope.$watchGroup([
+   () => vm.query,
+   () => vm.price,
+   () => vm.usePrice
 
-  vm.filterGroup = filterGroup;
+ ], filterGroup);
+
+ vm.filterGroup = filterGroup;
+}
 
 
   // $http
@@ -53,4 +63,4 @@ function GroupsIndexCtrl($http, Group, filterFilter, $scope) {
   //     vm.all = res.data;
   //     console.log('hello');
   //   });
-}
+// }

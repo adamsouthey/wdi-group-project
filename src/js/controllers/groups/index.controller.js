@@ -32,6 +32,8 @@ function GroupsIndexCtrl($http, Group, filterFilter, $scope) {
     .then((groups) => {
       vm.all = groups;
       filterGroup();
+
+
     });
 
   function filterGroup() {
@@ -42,18 +44,28 @@ function GroupsIndexCtrl($http, Group, filterFilter, $scope) {
   }
 
   filterGroup();
+  getWeather();
 
-  // $scope.$watch(() => vm.query, filterGroup);
-  //
-  // vm.filterGroup = filterGroup;
+
+  function getWeather(){
+
+    $http
+      .get('/api/weather')
+      .then((response) => {
+        console.log(response);
+        console.log('weather firing');
+        vm.weatherSummary = response.data.minutely.summary;
+      });
+  }
+
   $scope.$watchGroup([
-   () => vm.query,
-   () => vm.price,
-   () => vm.usePrice
+    () => vm.query,
+    () => vm.price,
+    () => vm.usePrice
 
- ], filterGroup);
+  ], filterGroup);
 
- vm.filterGroup = filterGroup;
+  vm.filterGroup = filterGroup;
 }
 
 

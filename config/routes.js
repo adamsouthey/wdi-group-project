@@ -4,6 +4,7 @@ const auth = require('../controllers/auth');
 const secureRoute = require('../lib/secureRoute');
 const groups = require('../controllers/groups');
 const meetup = require('../controllers/meetup');
+const darkSky = require('../controllers/darkSky');
 //
 router.route('/groups')
   .all(secureRoute)
@@ -24,5 +25,8 @@ router.route('/login')
 
 router.route('/groups')
   .get(meetup.proxy);
+
+router.route('/weather')
+  .get(darkSky.proxy);
 
 module.exports = router;

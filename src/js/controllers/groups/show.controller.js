@@ -9,7 +9,6 @@ function GroupsShowCtrl($state, $stateParams, Group) {
   Group.get($state.params)
     .$promise
     .then((group) => {
-      console.log('in here');
       vm.group = group;
 
     });

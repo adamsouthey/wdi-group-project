@@ -1,29 +1,26 @@
-<div>
-  <div class="row">
-    <div ng-repeat="group in vm.filtered" class="col-md-3">
-
-      <p> {{ group.name }} </p>
-      <p> {{ group.price }} </p>
-      <p> {{ group.local_date }} </p>
-      <p> {{ group.local_time }} </p>
-      <img src= "{{ group.image }}">
-
-
-
-    </div>
-  </div>
-</div>
-
 <form class="form-inline">
   <input ng-model="vm.query" class="form-control mr-sm-2" type="text" placeholder="Search by Group Name">
   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 </form>
 
 <div class="pure-g filters">
-           <div class="pure-u-1 pure-u-sm-1-2">
-             <div class="l-box">
-               <input type="checkbox" id="abv" ng-model="vm.usePrice">
-               <label for="price">Price</label>
-               <input type="range" model-min="min" model-max="max" orientation="vertical" ng-model="vm.price" decimal-places="3" min="1" max="10" ng-disabled="!vm.usePrice">
-             </div>
-           </div>
+  <div class="pure-u-1 pure-u-sm-1-2">
+    <div class="l-box">
+      <input type="checkbox" id="abv" ng-model="vm.usePrice">
+      <label for="price">Price</label>
+      <input type="range" model-min="min" model-max="max" orientation="vertical" ng-model="vm.price" decimal-places="3" min="1" max="10" ng-disabled="!vm.usePrice">
+    </div>
+  </div>
+</div>
+
+<div class="container is-fluid">
+  <div class="columns is-multiline">
+    <div ng-repeat="group in vm.filtered" class="column is-one-third">
+      <p><strong>{{ group.name }}</strong> </p>
+      <img src= "{{ group.image }}">
+      <p> Price: {{ group.price }} </p>
+      <p> Date: {{ group.local_date }} </p>
+      <p> Time: {{ group.local_time }} </p>
+    </div>
+  </div>
+</div>

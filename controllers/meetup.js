@@ -23,6 +23,24 @@ function getEventsProxy(req, res) {
     });
 }
 
+function getEventProxy(req, res) {
+  console.log(req.params);
+  rp({
+    url: `https://api.meetup.com/${req.params.groupName}/events/${req.params.eventId}`,
+    method: 'GET',
+    json: true,
+    qs: {
+      key: `${apiKey}`
+    }
+  })
+    .then((response) => {
+      res.json(response);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+}
 module.exports = {
-  proxy: getEventsProxy
+  proxy: getEventsProxy,
+  proxyId: getEventProxy
 };

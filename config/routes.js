@@ -5,11 +5,11 @@ const secureRoute = require('../lib/secureRoute');
 const groups = require('../controllers/groups');
 const meetup = require('../controllers/meetup');
 const darkSky = require('../controllers/darkSky');
+const users = require('../controllers/users');
 
 router.route('/groups')
   .all(secureRoute)
   .get(groups.index);
-
 
 router.route('/groups/:id')
   .all(secureRoute)
@@ -19,6 +19,8 @@ router.route('/groups/:meetupId/join')
   .all(secureRoute)
   .post(groups.join);
 
+router.route('/users/:id')
+  .get(users.show);
 
 router.route('/register')
   .post(auth.register);
@@ -30,7 +32,7 @@ router.route('/events')
   .get(meetup.proxy);
 
 router.route('/events/:groupName/:eventId')
-  .get(meetup.proxyId);
+  .get(secureRoute, meetup.proxyId);
 
 router.route('/weather')
   .get(darkSky.proxy);

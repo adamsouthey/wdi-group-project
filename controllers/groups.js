@@ -3,7 +3,6 @@ const Group = require('../models/group');
 function indexRoute(req, res, next) {
   Group
     .find()
-    // .populate('createdBy')
     .exec()
     .then((groups) => res.json(groups))
     .catch(next);
@@ -12,7 +11,6 @@ function indexRoute(req, res, next) {
 function showRoute(req, res, next) {
   Group
     .findById(req.params.id)
-    // .populate('createdBy comments.createdBy')
     .exec()
     .then((group) => {
       if(!group) return res.notFound();
@@ -31,7 +29,7 @@ function joinGroupRoute(req, res, next) {
         return Group
           .create({ meetupId: req.params.meetupId, members: [req.user.id] });
       } else {
-        
+
         group.members.push(req.user.id);
         return group.save();
       }

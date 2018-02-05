@@ -5,7 +5,7 @@ angular
 MainCtrl.$inject = ['$transitions', '$rootScope', '$state', '$auth'];
 function MainCtrl($transitions, $rootScope, $state, $auth) {
   const vm = this;
-
+  
   vm.isAuthenticated = $auth.isAuthenticated;
 
   // LOGOUT
@@ -24,6 +24,11 @@ function MainCtrl($transitions, $rootScope, $state, $auth) {
 
     if(vm.stateHasChanged) vm.message = null;
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
+    if($auth.getPayload()) {
+      vm.currentUserId = $auth.getPayload().userId;
+      vm.currentUserGroups = $auth.getPayload().groups;
+    }
+
   });
 
   $rootScope.$on('error', (e, err) => {

@@ -3,6 +3,8 @@
   <button id="searchButtonGroupIndex" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 </form>
 
+<p>current groups: {{main.currentUserGroups}}</p>
+
 <div class="pure-g filters">
   <div class="pure-u-1 pure-u-sm-1-2">
     <div class="l-box">
@@ -22,22 +24,9 @@ is-offset-one-quarter">
       <div class="box">
         <a ui-sref="groupsShow({ groupName: group.group.urlname, id: group.id })"><h2 class="title is-4">{{ group.name }}</h2></a>
         <h4 class="subtitle is-5">{{ group.venue.name }}</h4>
-      <button ng-click="vm.joinGroup(group)" type="button" class="button">Join Group</button>
-      <!-- <p ng-bind-html="group.description"></p> -->
+      <button ng-click="vm.joinGroup(group)" type="button" class="button" ng-if="!vm.isInGroup(group)">Join Group</button>
+      <button ng-click="vm.leaveGroup(group)" ng-if="vm.isInGroup(group)" type="button" class="button">Leave Group</button>
       </div>
     </div>
   </div>
 </div>
-
-<!-- SEEDS DATA -->
-<!-- <div class="container is-fluid">
-  <div class="columns is-multiline">
-    <div ng-repeat="group in vm.filtered" class="column is-one-third">
-      <a ui-sref="groupsShow({ id: group.id })"><strong>{{ group.name }}</strong> </a>
-      <img src= "{{ group.image }}">
-      <p> Price: {{ group.price }} </p>
-      <p> Date: {{ group.local_date }} </p>
-      <p> Time: {{ group.local_time }} </p>
-    </div>
-  </div>
-</div> -->

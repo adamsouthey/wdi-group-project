@@ -9,8 +9,8 @@ const userSchema = new mongoose.Schema({
 
 userSchema.virtual('groups', {
   ref: 'Group',
-  localField: '_id', // use the _id field from this schema
-  foreignField: 'createdBy' // to match up with the createdBy field in the Post schema
+  localField: '_id',
+  foreignField: 'members'
 });
 
 userSchema
@@ -37,6 +37,7 @@ userSchema.methods.validatePassword = function validatePassword(password) {
   return bcrypt.compareSync(password, this.password);
 };
 
-userSchema.set('toJSON', { virtuals: true });
+userSchema.set('toJSON', { virtuals: true, getters: true });
+// userSchema.set('toObject', { virtuals: true, getters: true });
 
 module.exports = mongoose.model('User', userSchema);

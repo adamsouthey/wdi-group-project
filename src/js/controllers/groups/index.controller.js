@@ -2,9 +2,14 @@ angular
   .module('eventApp')
   .controller('GroupsIndexCtrl', GroupsIndexCtrl);
 
-GroupsIndexCtrl.$inject = ['$http', 'Group', 'filterFilter', '$scope', '$sce'];
-function GroupsIndexCtrl($http, Group, filterFilter, $scope, $sce) {
+GroupsIndexCtrl.$inject = ['$http', 'Group', 'filterFilter', '$scope', '$sce', '$auth', 'User'];
+function GroupsIndexCtrl($http, Group, filterFilter, $scope, $sce, $auth, User) {
   const vm = this;
+
+  const currentUserId = $auth.getPayload().userId;
+  // inside vm.currentUserId you would have .groups which is an array of populated group objs from your database, which includes the meetupId
+  vm.currentUser = User.get({ id: currentUserId });
+  // console.log(vm.currentUser);
 
   function filterGroup() {
     const params = { name: vm.query };
@@ -29,7 +34,7 @@ function GroupsIndexCtrl($http, Group, filterFilter, $scope, $sce) {
     $http
       .get('/api/events')
       .then((response) => {
-        console.log(response);
+        console.log(response.data);
         vm.eventInformation = response.data.events.map(event => {
           event.description = $sce.trustAsHtml(event.description);
           return event;
@@ -52,11 +57,31 @@ function GroupsIndexCtrl($http, Group, filterFilter, $scope, $sce) {
     Group
       .join({ meetupId: group.id })
       .$promise
-      .then((group) => {
+      .then(() => {
+        vm.currentUser = User.get({ id: currentUserId });
         // here group is the newly created or updated group object in your db
-        console.log('joined', group);
       });
   }
   vm.joinGroup = joinGroup;
+
+  function isInGroup(group) {
+    if(!vm.currentUser.groups) return false;
+    // if the current use has been returned from the db carry on
+    // store the meetup id from the group passed in
+    const meetupId = group.id;
+
+    // try and find a group inside the user's groups that matches that id
+    const foundGroup = vm.currentUser.groups.some((group) => {
+      return group.meetupId === meetupId;
+    });
+
+    if (foundGroup) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  vm.isInGroup = isInGroup;
 
 }

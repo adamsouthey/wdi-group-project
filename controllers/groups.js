@@ -40,9 +40,28 @@ function joinGroupRoute(req, res, next) {
     .catch(next);
 }
 
+function leaveGroupRoute(req, res, next) {
+  Group
+    .findOne({ meetupId: req.params.meetupId })
+    .exec()
+    .then((group) => {
+      if(!group) return res.notFound();
+
+      const index = group.members.indexOf(req.user.id);
+      group.members.splice(index, 1);
+
+      return group.save();
+    })
+    .then((group) => {
+      res.json(group);
+    })
+    .catch(next);
+}
+
 
 module.exports = {
   index: indexRoute,
   show: showRoute,
-  join: joinGroupRoute
+  join: joinGroupRoute,
+  leave: leaveGroupRoute
 };

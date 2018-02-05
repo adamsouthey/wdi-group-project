@@ -19,6 +19,7 @@ Group.$inject = ['$resource'];
 function Group($resource){
   return $resource('/api/groups/:id', { id: '@_id', meetupId: '@meetupId'}, {
     'update': { method: 'PUT' },
-    'join': { method: 'POST', url: '/api/groups/:meetupId/join' }
+    'join': { method: 'POST', url: '/api/groups/:meetupId/join' },
+    'leave': { method: 'DELETE', url: '/api/groups/:meetupId/leave'}
   });
 }

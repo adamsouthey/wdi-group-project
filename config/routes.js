@@ -19,6 +19,10 @@ router.route('/groups/:meetupId/join')
   .all(secureRoute)
   .post(groups.join);
 
+router.route('/groups/:meetupId/leave')
+  .all(secureRoute)
+  .delete(groups.leave);
+
 router.route('/users/:id')
   .get(users.show);
 

@@ -5,7 +5,7 @@ angular
 GroupsShowCtrl.$inject = ['$http', 'Group', 'filterFilter', '$scope', '$sce', '$state'];
 function GroupsShowCtrl($http, Group, filterFilter, $scope, $sce, $state) {
   const vm = this;
-  const eventId = $state.params.id;
+  const meetupId = $state.params.id;
   const groupName = $state.params.groupName;
 
   //   $http
@@ -21,7 +21,7 @@ function GroupsShowCtrl($http, Group, filterFilter, $scope, $sce, $state) {
 
   function getEventsById(){
     $http
-      .get(`/api/events/${groupName}/${eventId}`)
+      .get(`/api/events/${groupName}/${meetupId}`)
       .then((response) => {
         console.log(response);
         vm.eventInformation = response.data;

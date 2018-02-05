@@ -2,20 +2,28 @@
   <ul class="columns is-multiline">
     <li class="column is-half">
       <h3 class="title is-1">{{ vm.eventInformation.name }}</h3>
+      <hr>
       <!-- <img src="{{ vm.eventInformation.image }}" alt="Event image"> -->
-      <p>Fee: £ {{ vm.eventInformation.fee }} </p>
-      <p>Date: {{ vm.eventInformation.local_date }} </p>
-      <p>Time: {{ vm.eventInformation.local_time }} </p>
-      <p>Venue: {{ vm.eventInformation.venue_name }} </p>
-      <p>Address: {{ vm.eventInformation.address_1 }} </p>
-      <p>City: {{ vm.eventInformation.city }} </p>
-      <p>Link: {{ vm.eventInformation.link }} </p>
-      <p>Description: <span ng-bind-html="vm.eventInformation.description"></span></p>
-      <p>Time: {{ vm.eventInformation.local_time }} </p>
+      <!-- <p><strong>Fee: £ {{ vm.eventInformation.fee }} </p> -->
+      <p><strong>Venue:</strong>  {{ vm.eventInformation.venue.name }} </p>
+      <p><strong>Date:</strong> {{ vm.eventInformation.local_date }} </p>
+      <p><strong>Time:</strong>  {{ vm.eventInformation.local_time }} </p>
+      <p><strong>Status:</strong>  {{ vm.eventInformation.status }} </p>
+      <p><strong>Address:</strong>  {{ vm.eventInformation.venue.address_1 }} </p>
+      <p><strong>City:</strong>  {{ vm.eventInformation.venue.city }} </p>
+      <p> <strong>Link:</strong>  {{ vm.eventInformation.link }} </p>
+      <p> <strong>RSVP Limit:</strong>  {{ vm.eventInformation.rsvp_limit }} </p>
+      <hr>
+      <p><strong>Description:</strong>  <span ng-bind-html="vm.eventInformation.description"></span></p>
+
 
 
       <!-- <button class="button is-black" ui-sref="groupsEdit({ id: vm.eventInformation.id })">Edit</button> -->
       <!-- <button class="button is-black" ng-click="vm.delete()">Delete</button> -->
     </li>
   </ul>
+</div>
+
+<div class="map">
+  <google-map center="{ lat: vm.eventInformation.group.lat, lng: vm.eventInformation.group.lon }"></google-map>
 </div>

@@ -10,9 +10,16 @@ img{
 .map{
   height: 400px;
   width: 400px;
+  margin: 80px;
 }
 
 .google-map{
   height: 400px;
   width: 400px;
+}
+
+img {
+  &.home {
+    background-size: cover;
+  }
 }

@@ -64,6 +64,16 @@ function GroupsIndexCtrl($http, Group, filterFilter, $scope, $sce, $auth, User) 
   }
   vm.joinGroup = joinGroup;
 
+  function leaveGroup(group) {
+    Group
+      .leave({ meetupId: group.id })
+      .$promise
+      .then(() => {
+        vm.currentUser = User.get({ id: currentUserId });
+      });
+  }
+  vm.leaveGroup = leaveGroup;
+
   function isInGroup(group) {
     if(!vm.currentUser.groups) return false;
     // if the current use has been returned from the db carry on
@@ -81,7 +91,6 @@ function GroupsIndexCtrl($http, Group, filterFilter, $scope, $sce, $auth, User) 
       return false;
     }
   }
-
   vm.isInGroup = isInGroup;
 
 }

@@ -23,7 +23,7 @@ router.route('/register')
 router.route('/login')
   .post(auth.login);
 
-router.route('/groups')
+router.route('/events')
   .get(meetup.proxy);
 
 router.route('/weather')

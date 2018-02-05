@@ -1,10 +1,19 @@
 const rp = require('request-promise');
+const apiKey = process.env.MEETUP_API_KEY;
 
-function meetupProxy(req, res) {
+
+function getEventsProxy(req, res) {
   rp({
-    url: 'https://api.meetup.com/find/upcoming_events/?lat=51&lon=-0.12&key=4262f441d125f665b6359c401776',
+    url: 'https://api.meetup.com/find/upcoming_events/',
     method: 'GET',
-    json: true
+    json: true,
+    qs: {
+      key: `${apiKey}`,
+      lat: '51.5153',
+      lon: '0.072',
+      // fields:
+      radius: '10'
+    }
   })
     .then((response) => {
       res.json(response);
@@ -15,5 +24,5 @@ function meetupProxy(req, res) {
 }
 
 module.exports = {
-  proxy: meetupProxy
+  proxy: getEventsProxy
 };

@@ -8,15 +8,6 @@ function GroupsShowCtrl($http, Group, filterFilter, $scope, $sce, $state) {
   const meetupId = $state.params.id;
   const groupName = $state.params.groupName;
 
-  //   $http
-  //     .get($state.params)
-  //     .$promise
-  //     .then((group) => {
-  //       vm.group = group;
-  //
-  //     });
-  // }
-
   getEventsById();
 
   function getEventsById(){

@@ -17,7 +17,8 @@
       <p><strong>Description:</strong>  <span ng-bind-html="vm.eventInformation.description"></span></p>
 
 
-
+      <button ng-click="vm.joinGroup(group)" type="button" class="button" ng-if="!vm.isInGroup(group)">Join Group</button>
+      <button ng-click="vm.leaveGroup(group)" type="button" class="button" ng-if="vm.isInGroup(group)">Leave Group</button>
       <!-- <button class="button is-black" ui-sref="groupsEdit({ id: vm.eventInformation.id })">Edit</button> -->
       <!-- <button class="button is-black" ng-click="vm.delete()">Delete</button> -->
     </li>

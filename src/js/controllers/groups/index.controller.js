@@ -9,7 +9,6 @@ function GroupsIndexCtrl($http, Group, filterFilter, $scope, $sce, $auth, User) 
   const currentUserId = $auth.getPayload().userId;
   // inside vm.currentUserId you would have .groups which is an array of populated group objs from your database, which includes the meetupId
   vm.currentUser = User.get({ id: currentUserId });
-  // console.log(vm.currentUser);
 
   function filterGroup() {
     const params = { name: vm.query };

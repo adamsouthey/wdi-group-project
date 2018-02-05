@@ -2,38 +2,23 @@ angular
   .module('eventApp')
   .controller('GroupsIndexCtrl', GroupsIndexCtrl);
 
-GroupsIndexCtrl.$inject = ['$http', 'Group', 'filterFilter', '$scope'];
-function GroupsIndexCtrl($http, Group, filterFilter, $scope) {
+GroupsIndexCtrl.$inject = ['$http', 'Group', 'filterFilter', '$scope', '$sce'];
+function GroupsIndexCtrl($http, Group, filterFilter, $scope, $sce) {
   const vm = this;
-
-  Group
-    .query()
-    .$promise
-    .then((groups) => {
-      vm.all = groups;
-      filterGroup();
-
-
-    });
 
   function filterGroup() {
     const params = { name: vm.query };
     if(vm.usePrice) params.price = vm.price;
-    vm.filtered = filterFilter(vm.all, params);
-    console.log('firing');
+    vm.filtered = filterFilter(vm.eventInformation, params);
   }
 
-  filterGroup();
   getWeather();
 
-
   function getWeather(){
-
     $http
       .get('/api/weather')
       .then((response) => {
         console.log(response);
-        console.log('weather firing');
         vm.weatherSummary = response.data.minutely.summary;
       });
   }
@@ -45,9 +30,11 @@ function GroupsIndexCtrl($http, Group, filterFilter, $scope) {
       .get('/api/events')
       .then((response) => {
         console.log(response);
-        console.log('events firing');
-        vm.eventInformation = response.data;
-        console.log(vm.eventInformation);
+        vm.eventInformation = response.data.events.map(event => {
+          event.description = $sce.trustAsHtml(event.description);
+          return event;
+        });
+        filterGroup();
       });
   }
 

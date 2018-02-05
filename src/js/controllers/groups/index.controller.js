@@ -46,4 +46,17 @@ function GroupsIndexCtrl($http, Group, filterFilter, $scope, $sce) {
   ], filterGroup);
 
   vm.filterGroup = filterGroup;
+
+  // JOINING A GROUP
+  function joinGroup(group) {
+    Group
+      .join({ meetupId: group.id })
+      .$promise
+      .then((group) => {
+        // here group is the newly created or updated group object in your db
+        console.log('joined', group);
+      });
+  }
+  vm.joinGroup = joinGroup;
+
 }

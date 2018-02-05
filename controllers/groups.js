@@ -22,7 +22,29 @@ function showRoute(req, res, next) {
     .catch(next);
 }
 
+function joinGroupRoute(req, res, next) {
+  Group
+    .findOne({ meetupId: req.params.meetupId })
+    .exec()
+    .then((group) => {
+      if (!group) {
+        return Group
+          .create({ meetupId: req.params.meetupId, members: [req.user.id] });
+      } else {
+        
+        group.members.push(req.user.id);
+        return group.save();
+      }
+    })
+    .then((group) => {
+      res.json(group);
+    })
+    .catch(next);
+}
+
+
 module.exports = {
   index: indexRoute,
-  show: showRoute
+  show: showRoute,
+  join: joinGroupRoute
 };

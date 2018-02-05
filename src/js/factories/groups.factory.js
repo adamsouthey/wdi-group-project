@@ -17,7 +17,8 @@ angular
 
 Group.$inject = ['$resource'];
 function Group($resource){
-  return $resource('/api/groups/:id', { id: '@_id'}, {
-    'update': { method: 'PUT' }
+  return $resource('/api/groups/:id', { id: '@_id', meetupId: '@meetupId'}, {
+    'update': { method: 'PUT' },
+    'join': { method: 'POST', url: '/api/groups/:meetupId/join' }
   });
 }

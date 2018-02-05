@@ -1,20 +1,15 @@
 const mongoose = require('mongoose');
 
 const groupSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  local_date: { type: String, required: true },
-  local_time: { type: String, required: true },
-  venue_name: { type: String, required: true },
-  address_1: { type: String, required: true },
-  city: { type: String, required: true },
-  image: { type: String, required: true },
-  price: { type: Number, required: true },
-  lat: { type: Number, required: true },
-  lon: { type: Number, required: true },
-  link: { type: String, required: true },
-  description: { type: String, required: true }
+  meetupId: String,
+  members: [{ type: mongoose.Schema.ObjectId, ref: 'User'}]
 });
 
 groupSchema.set('toJSON', { virtuals: true });
 
-module.exports = mongoose.model('Post', groupSchema);
+module.exports = mongoose.model('Group', groupSchema);
+
+// when 'join group' is clicked (ng-click="vm.joinGroup()) the user's id is pushed into the members array and either creates a group or joins an existing group
+// Goes to groups front end controller function for joining a groups
+// url from factory ??
+// passed to function from controller in back end which pushes user id into object

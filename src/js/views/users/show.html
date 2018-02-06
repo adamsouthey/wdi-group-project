@@ -9,5 +9,8 @@
       <a ui-sref="groupsShow({ groupName: group.group.urlname, id: group.id })"><h2 class="title is-4">{{ group.name }}</h2></a>
       <h4 class="subtitle is-5">{{ group.venue.name }}</h4>
     </div>
+  </div> -->
+  <div ng-repeat="group in vm.user.groups">
+    <p>{{vm.user.groups}}</p>
   </div>
-</div> -->
+</div>

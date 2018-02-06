@@ -12,6 +12,18 @@
           <input ng-model="vm.query" class="input-box" type="text" placeholder="Search by City">
         </form>
       </div>
+      <form ng-submit="getEventsProxy()">
+            <div class="field">
+              <label class="label">Enter a Location</label>
+              <div class="control">
+                <input class="input" type="text" ng-model="vm.location" google-autocomplete>
+              </div>
+            </div>
+            {{ vm.location }}
+            <div class="control">
+              <button class="button">Search Place</button>
+            </div>
+          </form>
       <!-- Will be changed to radius -->
       <input type="checkbox" id="abv" ng-model="vm.usePrice">
       <label for="price">Price</label>

@@ -7,6 +7,7 @@ const meetup = require('../controllers/meetup');
 const darkSky = require('../controllers/darkSky');
 const users = require('../controllers/users');
 
+
 // group requests
 router.route('/groups')
   .get(secureRoute, groups.index);
@@ -38,6 +39,7 @@ router.route('/events/:groupName/:eventId')
   .get(secureRoute, meetup.proxyId);
 router.route('/weather')
   .get(darkSky.proxy);
+
 
 router.route('/*').get((req, res) => res.json({ message: 'Not found'}));
 

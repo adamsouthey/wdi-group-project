@@ -33,6 +33,7 @@ function GroupsIndexCtrl($http, Group, filterFilter, $scope, $sce, $auth, User) 
     $http
       .get('/api/events')
       .then((response) => {
+        console.log(response);
         vm.eventInformation = response.data.events.map(event => {
           event.description = $sce.trustAsHtml(event.description);
           return event;
@@ -49,6 +50,7 @@ function GroupsIndexCtrl($http, Group, filterFilter, $scope, $sce, $auth, User) 
   ], filterGroup);
 
   vm.filterGroup = filterGroup;
+
 
   // JOINING A GROUP
   function joinGroup(group) {

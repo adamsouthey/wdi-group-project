@@ -12,7 +12,7 @@ router.route('/groups')
   .get(secureRoute, groups.index);
 router.route('/groups/:meetupId') // getting group back from the db
   .get(secureRoute, groups.show);
-router.route('/groups/:meetupId/join')
+router.route('/groups/:urlname/:meetupId/join')
   .post(secureRoute, groups.join);
 router.route('/groups/:meetupId/leave')
   .delete(secureRoute, groups.leave);

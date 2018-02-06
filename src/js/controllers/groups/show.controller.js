@@ -27,6 +27,7 @@ function GroupsShowCtrl($http, Group, filterFilter, $scope, $sce, $state) {
 
   }
 
+  // COMMENTS
   function addComment() {
     Group
       .addComment({ meetupId: meetupId }, vm.newComment)
@@ -51,5 +52,9 @@ function GroupsShowCtrl($http, Group, filterFilter, $scope, $sce, $state) {
   vm.deleteComment = deleteComment;
 
 
+  function foundMember(currentUserId) {
+    return vm.group.members.indexOf(currentUserId) > -1;
+  }
+  vm.foundMember = foundMember;
 
 }

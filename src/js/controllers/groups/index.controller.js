@@ -53,8 +53,9 @@ function GroupsIndexCtrl($http, Group, filterFilter, $scope, $sce, $auth, User) 
 
   // JOINING A GROUP
   function joinGroup(group) {
+    console.log('group', group);
     Group
-      .join({ meetupId: group.id })
+      .join({ meetupId: group.id, urlname: group.group.urlname })
       .$promise
       .then(() => {
         vm.currentUser = User.get({ id: currentUserId });
@@ -75,7 +76,7 @@ function GroupsIndexCtrl($http, Group, filterFilter, $scope, $sce, $auth, User) 
 
   function isInGroup(group) {
     if(!vm.currentUser.groups) return false;
-    // if the current use has been returned from the db carry on
+    // if the current user has been returned from the db carry on
     // store the meetup id from the group passed in
     const meetupId = group.id;
 

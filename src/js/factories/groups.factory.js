@@ -8,10 +8,7 @@ function Group($resource){
     'update': { method: 'PUT' },
     'join': { method: 'POST', url: '/api/groups/:meetupId/join' },
     'leave': { method: 'DELETE', url: '/api/groups/:meetupId/leave'},
-    'addComment': { method: 'POST', url: '/api/groups/:meetupId/comments'}
+    'addComment': { method: 'POST', url: '/api/groups/:meetupId/comments'},
+    'deleteComment': { method: 'DELETE', url: '/api/groups/:meetupId/comments/:commentId'}
   });
 }
-
-//     // 'deleteComment': { method: 'DELETE', url: `${API}/movies/:movieId/comments/:commentId` }
-//   });
-// }

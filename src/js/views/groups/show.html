@@ -30,9 +30,8 @@
         <ul class="comments__created">
           <li ng-repeat="comment in vm.group.comments track by $index">
             <a ui-sref="usersShow({ id: comment.createdBy.id })"><strong>{{ comment.createdBy.username }}</strong></a> - {{ comment.text }}
+            <button class="button" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">Delete</button>
           </li>
-          <!-- <button class="button is-black" ui-sref="groupsEdit({ id: vm.eventInformation.id })">Edit</button> -->
-          <!-- <button class="button is-black" ng-click="vm.delete()">Delete</button> -->
         </ul>
         <form ng-submit="vm.addComment()" ng-if="main.isAuthenticated()">
           <label>Add comment</label>

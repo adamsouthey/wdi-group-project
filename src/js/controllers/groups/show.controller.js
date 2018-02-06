@@ -39,4 +39,17 @@ function GroupsShowCtrl($http, Group, filterFilter, $scope, $sce, $state) {
   vm.addComment = addComment;
 
 
+  function deleteComment(comment) {
+    Group
+      .deleteComment({ meetupId: meetupId, commentId: comment.id })
+      .$promise
+      .then(() => {
+        const index = vm.group.comments.indexOf(comment);
+        vm.group.comments.splice(index, 1);
+      });
+  }
+  vm.deleteComment = deleteComment;
+
+
+
 }

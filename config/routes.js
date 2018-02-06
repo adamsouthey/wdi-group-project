@@ -18,8 +18,8 @@ router.route('/groups/:meetupId/leave')
   .delete(secureRoute, groups.leave);
 router.route('/groups/:meetupId/comments')
   .post(secureRoute, groups.addComment);
-// router.route('/groups/:meetupId/comments/commentId')
-//   .post(secureRoute, groups.deleteComment);
+router.route('/groups/:meetupId/comments/:commentId')
+  .delete(secureRoute, groups.deleteComment);
 
 // User request
 router.route('/users/:id')

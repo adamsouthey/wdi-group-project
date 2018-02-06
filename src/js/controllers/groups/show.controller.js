@@ -2,11 +2,13 @@ angular
   .module('eventApp')
   .controller('GroupsShowCtrl', GroupsShowCtrl);
 
-GroupsShowCtrl.$inject = ['$http', 'Group', 'filterFilter', '$scope', '$sce', '$state'];
-function GroupsShowCtrl($http, Group, filterFilter, $scope, $sce, $state) {
+GroupsShowCtrl.$inject = ['$http', 'Group', 'filterFilter', '$scope', '$sce', '$state', 'User', '$auth'];
+function GroupsShowCtrl($http, Group, filterFilter, $scope, $sce, $state, User, $auth) {
   const vm = this;
   const meetupId = $state.params.id;
   const groupName = $state.params.groupName;
+  const currentUserId = $auth.getPayload().userId;
+
 
   getEventById();
 
@@ -57,4 +59,25 @@ function GroupsShowCtrl($http, Group, filterFilter, $scope, $sce, $state) {
   }
   vm.foundMember = foundMember;
 
+  function joinGroup(group) {
+    Group
+      .join({ meetupId: group.id, urlname: group.group.urlname })
+      .$promise
+      .then((group) => {
+        vm.currentUser = User.get({ id: currentUserId });
+        vm.group = group;
+      });
+  }
+  vm.joinGroup = joinGroup;
+
+  function leaveGroup(group) {
+    Group
+      .leave({ meetupId: group.id })
+      .$promise
+      .then(() => {
+        vm.currentUser = User.get({ id: currentUserId });
+        vm.group = group;
+      });
+  }
+  vm.leaveGroup = leaveGroup;
 }

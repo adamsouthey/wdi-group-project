@@ -50,7 +50,6 @@ function GroupsIndexCtrl($http, Group, filterFilter, $scope, $sce, $auth, User) 
 
   vm.filterGroup = filterGroup;
 
-  // JOINING A GROUP
   function joinGroup(group) {
     console.log('group', group);
     Group

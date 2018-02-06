@@ -14,6 +14,7 @@
 </head>
 <body ng-controller="MainCtrl as main" ng-class="main.pageName">
 
+
     <nav class="navbar is-danger">
       <div class="navbar-brand">
         <a class="navbar-item" ui-sref="home">
@@ -27,22 +28,22 @@
       </div>
       <div id="navbarMenu" class="navbar-menu" ng-class="{ 'is-active': main.burgerMenuOpen }">
         <div class="navbar-end">
-          <a class="navbar-item is-active" ui-sref="home">
+          <a class="navbar-item hover-change" ui-sref="home">
             Home
           </a>
-          <a class="navbar-item" ui-sref="groupsIndex" ng-if="main.isAuthenticated()">
+          <a class="navbar-item hover-change" ui-sref="groupsIndex" ng-if="main.isAuthenticated()">
             Events
           </a>
-          <a class="navbar-item" ui-sref="usersShow" ng-if="main.isAuthenticated()">
+          <a class="navbar-item hover-change" ui-sref="usersShow" ng-if="main.isAuthenticated()">
             Profile
           </a>
-          <a class="navbar-item" ui-sref="login" ng-if="!main.isAuthenticated()">
+          <a class="navbar-item hover-change" ui-sref="login" ng-if="!main.isAuthenticated()">
             Login
           </a>
-          <a class="navbar-item" ui-sref="register" ng-if="!main.isAuthenticated()">
+          <a class="navbar-item hover-change" ui-sref="register" ng-if="!main.isAuthenticated()">
             Register
           </a>
-          <a class="navbar-item" ui-sref="/" ng-click="main.logout()" ng-if="main.isAuthenticated()">
+          <a class="navbar-item hover-change" ui-sref="/" ng-click="main.logout()" ng-if="main.isAuthenticated()">
             Logout
           </a>
           </div>

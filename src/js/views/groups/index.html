@@ -1,7 +1,7 @@
 
 <!-- <p> London Weather Summary: {{ vm.weatherSummary }} </p> -->
 
-<section class="hero is-danger is-medium">
+<section class="hero is-danger is-small">
   <div class="hero-body height-hero">
     <div class="container has-text-centered">
       <h1 class="title">
@@ -23,11 +23,16 @@
 
 <div class="container">
   <div class="columns is-multiline">
-    <div ng-repeat="group in vm.filtered" class="column is-11
-is-offset-1">
-      <div class="box">
+    <div ng-repeat="group in vm.filtered" class="column is-three-fifths
+is-offset-one-fifth">
+      <div class="box index-events">
         <a ui-sref="groupsShow({ groupName: group.group.urlname, id: group.id })"><h2 class="title is-4">{{ group.name }}</h2></a>
         <h4 class="subtitle is-5">{{ group.venue.name }}</h4>
+        <time datetime="{{vm.eventInformation.local_date}}" class="icon">
+          <em>Saturday</em>
+          <strong>September</strong>
+          <span>20</span>
+        </time>
       <button ng-click="vm.joinGroup(group)" type="button" class="button is-danger" ng-if="!vm.isInGroup(group)">Join Group</button>
       <button ng-click="vm.leaveGroup(group)" type="button" class="button is-danger" ng-if="vm.isInGroup(group)">Leave Group</button>
       <button ui-sref="groupsShow({ groupName: group.group.urlname, id: group.id })" type="button" class="button is-danger">View Event</button>

@@ -35,7 +35,7 @@ router.route('/login')
 router.route('/events')
   .get(meetup.proxy);
 router.route('/events/:groupName/:eventId')
-  .get(secureRoute, meetup.proxyId);
+  .get( meetup.proxyId);
 router.route('/weather')
   .get(darkSky.proxy);
 

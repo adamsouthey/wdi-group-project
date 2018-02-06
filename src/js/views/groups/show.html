@@ -18,8 +18,8 @@
       <p>foundMember(){{ vm.foundMember(main.currentUserId) }}</p>
       <p>vm.group.members{{vm.group.members}}</p>
       <p>main.currentUserId {{main.currentUserId}}</p>
-      <button ng-click="vm.joinGroup(vm.eventInformation)" type="button" class="button is-danger" ng-if="!vm.foundMember(main.currentUserId)">Join Group</button>
-      <button ng-click="vm.leaveGroup(vm.eventInformation)" type="button" class="button is-danger" ng-if="vm.foundMember(main.currentUserId)">Leave Group</button>
+      <button ng-click="vm.joinGroup(vm.eventInformation)" type="button" class="button is-danger" ng-if="!vm.isMember">Join Group</button>
+      <button ng-click="vm.leaveGroup(vm.eventInformation)" type="button" class="button is-danger" ng-if="vm.isMember">Leave Group</button>
     </li>
     <div class="column is-half">
       <div class="map">
@@ -27,7 +27,7 @@
       </div>
 
       <hr>
-      <div class="comments" ng-if="vm.foundMember(main.currentUserId)">
+      <div class="comments" ng-if="vm.isMember">
         <h2><strong>Comments</strong></h2>
         <p ng-if="!vm.group.comments.length">0 comments</p>
         <ul class="comments__created">

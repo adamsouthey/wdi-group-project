@@ -24,7 +24,15 @@ function GroupsShowCtrl($http, Group, filterFilter, $scope, $sce, $state, User, 
         Group
           .get({ meetupId })
           .$promise
-          .then((group) => vm.group = group);
+          .then((group) => {
+            vm.group = group;
+
+            if(vm.group.members.indexOf(currentUserId) > -1) {
+              vm.isMember = true;
+            } else {
+              vm.isMember = false;
+            }
+          });
       });
 
   }
@@ -66,6 +74,7 @@ function GroupsShowCtrl($http, Group, filterFilter, $scope, $sce, $state, User, 
       .then((group) => {
         vm.currentUser = User.get({ id: currentUserId });
         vm.group = group;
+        vm.isMember = true;
       });
   }
   vm.joinGroup = joinGroup;
@@ -77,6 +86,7 @@ function GroupsShowCtrl($http, Group, filterFilter, $scope, $sce, $state, User, 
       .then(() => {
         vm.currentUser = User.get({ id: currentUserId });
         vm.group = group;
+        vm.isMember = false;
       });
   }
   vm.leaveGroup = leaveGroup;

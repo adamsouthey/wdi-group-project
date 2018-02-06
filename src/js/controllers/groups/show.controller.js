@@ -11,10 +11,13 @@ function GroupsShowCtrl($http, Group, filterFilter, $scope, $sce, $state) {
   getEventsById();
 
   function getEventsById(){
+    console.log('in getEventsById');
+    // console.log('meetupId',meetupId);
+    // console.log('groupName',groupName);
     $http
       .get(`/api/events/${groupName}/${meetupId}`)
       .then((response) => {
-        console.log(response);
+        console.log('response',response);
         vm.eventInformation = response.data;
         vm.eventInformation.description = $sce.trustAsHtml(vm.eventInformation.description);
         // vm.eventInformation = response.data.events.map(event => {

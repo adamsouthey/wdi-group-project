@@ -17,7 +17,7 @@ function googleMap($window) {
         if (!scope.center.lat || !scope.center.lng) return false;
 
         const map = new $window.google.maps.Map(element[0], {
-          zoom: 8,
+          zoom: 14,
           center: scope.center
 
         });

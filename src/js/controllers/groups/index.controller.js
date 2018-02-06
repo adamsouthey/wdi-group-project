@@ -33,7 +33,6 @@ function GroupsIndexCtrl($http, Group, filterFilter, $scope, $sce, $auth, User) 
     $http
       .get('/api/events')
       .then((response) => {
-        console.log(response.data);
         vm.eventInformation = response.data.events.map(event => {
           event.description = $sce.trustAsHtml(event.description);
           return event;

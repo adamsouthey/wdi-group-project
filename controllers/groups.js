@@ -4,8 +4,8 @@ function indexRoute(req, res, next) {
   Group
     .find()
     .exec()
-    .then((groups) => res.json(groups))
-    .catch(next);
+    .then(groups => res.status(200).json(groups))
+    .catch(err => res.status(500).json(err));
 }
 
 function showRoute(req, res, next) {

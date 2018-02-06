@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "postinstall": "bower install && gulp deploy",
-    "test": "node_modules/.bin/_mocha"
+    "test": "nyc --reporter=html --reporter=text mocha --exit"
   },
   "author": "put group memeber names here",
   "license": "ISC",
@@ -55,7 +55,7 @@
     "bcrypt": "^1.0.3",
     "bluebird": "^3.5.1",
     "body-parser": "^1.13.2",
-    "express": "^4.14.0",
+    "express": "^4.16.2",
     "jsonwebtoken": "^8.1.1",
     "mongoose": "^5.0.1",
     "morgan": "~1.6.1",
@@ -95,6 +95,7 @@
     "jshint-stylish": "^2.2.1",
     "main-bower-files": "^2.13.1",
     "mocha": "^5.0.0",
+    "nyc": "^11.4.1",
     "require-dir": "^0.3.1",
     "supertest": "^3.0.0"
   }

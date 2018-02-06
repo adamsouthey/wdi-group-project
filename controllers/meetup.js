@@ -15,16 +15,13 @@ function getEventsProxy(req, res) {
       radius: '10'
     }
   })
-    .then((response) => {
-      res.json(response);
-    })
-    .catch((err) => {
-      res.json(err);
-    });
+    .then(response => res.status(200).json(response))
+    .catch(err => res.status(500).json(err));
+
 }
 
 function getEventProxy(req, res) {
-  console.log(req.params);
+  console.log('req.params',req.params);
   rp({
     url: `https://api.meetup.com/${req.params.groupName}/events/${req.params.eventId}`,
     method: 'GET',
@@ -33,12 +30,8 @@ function getEventProxy(req, res) {
       key: `${apiKey}`
     }
   })
-    .then((response) => {
-      res.json(response);
-    })
-    .catch((err) => {
-      res.json(err);
-    });
+    .then(response => res.status(200).json(response))
+    .catch(err => res.status(500).json(err));
 }
 module.exports = {
   proxy: getEventsProxy,

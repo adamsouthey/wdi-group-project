@@ -12,20 +12,20 @@
   <!-- inject:css -->
   <!-- endinject -->
 </head>
-<body ng-controller="MainCtrl as main">
+<body ng-controller="MainCtrl as main" ng-class="main.pageName">
 
     <nav class="navbar is-danger">
       <div class="navbar-brand">
         <a class="navbar-item" ui-sref="home">
           <p>EventApp</p>
         </a>
-        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+        <div class="navbar-burger burger" ng-click="main. burgerMenuOpen = !main.burgerMenuOpen" ng-class="{ 'is-active': main.burgerMenuOpen }" data-target="navbarExampleTransparentExample">
           <span></span>
           <span></span>
           <span></span>
         </div>
       </div>
-      <div id="navbarMenu" class="navbar-menu">
+      <div id="navbarMenu" class="navbar-menu" ng-class="{ 'is-active': main.burgerMenuOpen }">
         <div class="navbar-end">
           <a class="navbar-item is-active" ui-sref="home">
             Home

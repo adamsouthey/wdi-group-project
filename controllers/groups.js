@@ -4,13 +4,15 @@ function indexRoute(req, res, next) {
   Group
     .find()
     .exec()
-    .then((groups) => res.json(groups))
+    .then(groups => res.status(200).json(groups))
     .catch(next);
 }
 
+// getting group back from the db 
 function showRoute(req, res, next) {
   Group
-    .findById(req.params.id)
+    .findOne({ meetupId: req.params.meetupId })
+    .populate('createdBy comments.createdBy')
     .exec()
     .then((group) => {
       if(!group) return res.notFound();
@@ -59,9 +61,31 @@ function leaveGroupRoute(req, res, next) {
 }
 
 
+function addCommentRoute(req, res, next) {
+  console.log('in addCommentRoute');
+  req.body.createdBy = req.user;
+  console.log('req.body',req.body);
+
+  Group
+    .findOne({ meetupId: req.params.meetupId })
+    .exec()
+    .then((group) => {
+      if(!group) return res.notFound();
+
+      const comment = group.comments.create(req.body);
+      group.comments.push(comment);
+
+      return group.save()
+        .then(() => res.json(comment));
+    })
+    .catch(next);
+}
+
+
 module.exports = {
   index: indexRoute,
   show: showRoute,
   join: joinGroupRoute,
-  leave: leaveGroupRoute
+  leave: leaveGroupRoute,
+  addComment: addCommentRoute
 };

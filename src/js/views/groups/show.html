@@ -16,15 +16,28 @@
       <hr>
       <p><strong>Description:</strong>  <span ng-bind-html="vm.eventInformation.description"></span></p>
 
-
       <button ng-click="vm.joinGroup(group)" type="button" class="button is-danger" ng-if="!vm.isInGroup(group)">Join Group</button>
       <button ng-click="vm.leaveGroup(group)" type="button" class="button is-danger" ng-if="vm.isInGroup(group)">Leave Group</button>
-      <!-- <button class="button is-black" ui-sref="groupsEdit({ id: vm.eventInformation.id })">Edit</button> -->
-      <!-- <button class="button is-black" ng-click="vm.delete()">Delete</button> -->
     </li>
     <div class="column is-half">
       <div class="map">
         <google-map center="{ lat: vm.eventInformation.group.lat, lng: vm.eventInformation.group.lon }"></google-map>
+      </div>
+
+      <div class="comments">
+        <h2>Comments</h2>
+        <p ng-if="!vm.group.comments.length">0 comments</p>
+        <ul class="comments__created">
+          <li ng-repeat="comment in vm.group.comments track by $index">
+            <a ui-sref="usersShow({ id: comment.createdBy.id })"><strong>{{ comment.createdBy.username }}</strong></a> - {{ comment.text }}
+            <button class="button" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">Delete</button>
+          </li>
+        </ul>
+        <form ng-submit="vm.addComment()" ng-if="main.isAuthenticated()">
+          <label>Add comment</label>
+          <textarea ng-model="vm.newComment.text"></textarea>
+          <button class="button button--full">Comment</button>
+        </form>
       </div>
     </div>
   </ul>

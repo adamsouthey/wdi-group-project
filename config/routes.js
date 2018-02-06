@@ -7,37 +7,35 @@ const meetup = require('../controllers/meetup');
 const darkSky = require('../controllers/darkSky');
 const users = require('../controllers/users');
 
+// group requests
 router.route('/groups')
-  .all(secureRoute)
-  .get(groups.index);
-
-router.route('/groups/:id')
-  .all(secureRoute)
-  .get(groups.show);
-
+  .get(secureRoute, groups.index);
+router.route('/groups/:meetupId') // getting group back from the db
+  .get(secureRoute, groups.show);
 router.route('/groups/:meetupId/join')
-  .all(secureRoute)
-  .post(groups.join);
-
+  .post(secureRoute, groups.join);
 router.route('/groups/:meetupId/leave')
-  .all(secureRoute)
-  .delete(groups.leave);
+  .delete(secureRoute, groups.leave);
+router.route('/groups/:meetupId/comments')
+  .post(secureRoute, groups.addComment);
+router.route('/groups/:meetupId/comments/:commentId')
+  .delete(secureRoute, groups.deleteComment);
 
+// User request
 router.route('/users/:id')
   .get(users.show);
 
+// Authentication
 router.route('/register')
   .post(auth.register);
-
 router.route('/login')
   .post(auth.login);
 
+// Proxy requests
 router.route('/events')
   .get(meetup.proxy);
-
 router.route('/events/:groupName/:eventId')
   .get(secureRoute, meetup.proxyId);
-
 router.route('/weather')
   .get(darkSky.proxy);
 

@@ -5,12 +5,14 @@ function indexRoute(req, res, next) {
     .find()
     .exec()
     .then(groups => res.status(200).json(groups))
-    .catch(err => res.status(500).json(err));
+    .catch(next);
 }
 
+// getting group back from the db
 function showRoute(req, res, next) {
   Group
-    .findById(req.params.id)
+    .findOne({ meetupId: req.params.meetupId })
+    .populate('createdBy comments.createdBy')
     .exec()
     .then((group) => {
       if(!group) return res.notFound();
@@ -59,9 +61,46 @@ function leaveGroupRoute(req, res, next) {
 }
 
 
+function addCommentRoute(req, res, next) {
+  req.body.createdBy = req.user;
+
+  Group
+    .findOne({ meetupId: req.params.meetupId })
+    .exec()
+    .then((group) => {
+      if(!group) return res.notFound();
+
+      const comment = group.comments.create(req.body);
+      group.comments.push(comment);
+
+      return group.save()
+        .then(() => res.json(comment));
+    })
+    .catch(next);
+}
+
+function deleteCommentRoute(req, res, next) {
+  Group
+    .findOne({ meetupId: req.params.meetupId })
+    .exec()
+    .then((group) => {
+      if(!group) return res.notFound();
+
+      const comment = group.comments.id(req.params.commentId);
+      comment.remove();
+
+      return group.save();
+    })
+    .then(() => res.status(204).end())
+    .catch(next);
+}
+
+
 module.exports = {
   index: indexRoute,
   show: showRoute,
   join: joinGroupRoute,
-  leave: leaveGroupRoute
+  leave: leaveGroupRoute,
+  addComment: addCommentRoute,
+  deleteComment: deleteCommentRoute
 };

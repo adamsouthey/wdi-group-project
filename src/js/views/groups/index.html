@@ -1,29 +1,36 @@
-<form class="form-inline">
-  <input ng-model="vm.query" class="form-control mr-sm-2" type="text" placeholder="Search by Group Name">
-  <button id="searchButtonGroupIndex" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-</form>
 
-<div class="pure-g filters">
-  <div class="pure-u-1 pure-u-sm-1-2">
-    <div class="l-box">
+<!-- <p> London Weather Summary: {{ vm.weatherSummary }} </p> -->
+
+<section class="hero is-danger is-medium">
+  <div class="hero-body height-hero">
+    <div class="container has-text-centered">
+      <h1 class="title">
+        EventApp
+      </h1>
+      <div class="box">
+        <form class="search-box">
+          <input ng-model="vm.query" class="input-box" type="text" placeholder="Search by City">
+        </form>
+      </div>
+      <!-- Will be changed to radius -->
       <input type="checkbox" id="abv" ng-model="vm.usePrice">
       <label for="price">Price</label>
       <input type="range" model-min="min" model-max="max" orientation="vertical" ng-model="vm.price" decimal-places="3" min="1" max="10" ng-disabled="!vm.usePrice">
     </div>
   </div>
-</div>
+</section>
 
-<p> London Weather Summary: {{ vm.weatherSummary }} </p>
 
 <div class="container">
   <div class="columns is-multiline">
-    <div ng-repeat="group in vm.filtered" class="column is-half
-is-offset-one-quarter">
+    <div ng-repeat="group in vm.filtered" class="column is-11
+is-offset-1">
       <div class="box">
         <a ui-sref="groupsShow({ groupName: group.group.urlname, id: group.id })"><h2 class="title is-4">{{ group.name }}</h2></a>
         <h4 class="subtitle is-5">{{ group.venue.name }}</h4>
       <button ng-click="vm.joinGroup(group)" type="button" class="button is-danger" ng-if="!vm.isInGroup(group)">Join Group</button>
       <button ng-click="vm.leaveGroup(group)" type="button" class="button is-danger" ng-if="vm.isInGroup(group)">Leave Group</button>
+      <button ui-sref="groupsShow({ groupName: group.group.urlname, id: group.id })" type="button" class="button is-danger">View Event</button>
       </div>
     </div>
   </div>

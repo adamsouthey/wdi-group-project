@@ -3,10 +3,6 @@ img{
   width: 50px;
 }
 
-#searchButtonGroupIndex{
-  display: none;
-}
-
 .map{
   height: 400px;
   width: 400px;
@@ -22,4 +18,33 @@ img {
   &.home {
     background-size: cover;
   }
+}
+
+// INDEX PAGE
+.input-box {
+  border: 0;
+  padding: 10px 80px;
+  outline: none;
+  font-size: 20px;
+}
+
+.height-hero {
+  padding: 120px 24px;
+}
+
+// .hover-change:hover {
+//   background-color: #2f2f2f;
+// }
+
+.hero-padding {
+  padding: 0;
+}
+
+.homepage-image {
+  background-image: url('https://www.metro.us/sites/default/files/styles/normal_article/public/main/articles/2017/12/15/champagne-calories.jpg');
+  background-position: center;
+  background-size: cover;
+  padding-top: 20%;
+  padding-bottom: 20%;
+  margin-bottom: 80px;
 }

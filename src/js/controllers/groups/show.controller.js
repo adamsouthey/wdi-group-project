@@ -8,22 +8,48 @@ function GroupsShowCtrl($http, Group, filterFilter, $scope, $sce, $state) {
   const meetupId = $state.params.id;
   const groupName = $state.params.groupName;
 
-  getEventsById();
+  getEventById();
 
-  function getEventsById(){
-    console.log('in getEventsById');
-    // console.log('meetupId',meetupId);
-    // console.log('groupName',groupName);
+  function getEventById(){
     $http
       .get(`/api/events/${groupName}/${meetupId}`)
       .then((response) => {
-        console.log('response',response);
         vm.eventInformation = response.data;
         vm.eventInformation.description = $sce.trustAsHtml(vm.eventInformation.description);
-        // vm.eventInformation = response.data.events.map(event => {
-        //   event.description = $sce.trustAsHtml(event.description);
-        //   return event;
-        // });
+      })
+      // second request to get group back from the database
+      .then(() => {
+        Group
+          .get({ meetupId })
+          .$promise
+          .then((group) => vm.group = group);
+      });
+
+  }
+
+  function addComment() {
+    Group
+      .addComment({ meetupId: meetupId }, vm.newComment)
+      .$promise
+      .then((comment) => {
+        vm.group.comments.push(comment);
+        vm.newComment = {};
       });
   }
+  vm.addComment = addComment;
+
+
+  function deleteComment(comment) {
+    Group
+      .deleteComment({ meetupId: meetupId, commentId: comment.id })
+      .$promise
+      .then(() => {
+        const index = vm.group.comments.indexOf(comment);
+        vm.group.comments.splice(index, 1);
+      });
+  }
+  vm.deleteComment = deleteComment;
+
+
+
 }

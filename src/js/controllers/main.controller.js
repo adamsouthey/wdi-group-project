@@ -5,8 +5,9 @@ angular
 MainCtrl.$inject = ['$transitions', '$rootScope', '$state', '$auth'];
 function MainCtrl($transitions, $rootScope, $state, $auth) {
   const vm = this;
-  
+
   vm.isAuthenticated = $auth.isAuthenticated;
+  vm.burgerMenuOpen  = false;
 
   // LOGOUT
   function logout() {

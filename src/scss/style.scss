@@ -35,3 +35,16 @@ img {
 // .hover-change:hover {
 //   background-color: #2f2f2f;
 // }
+
+.hero-padding {
+  padding: 0;
+}
+
+.homepage-image {
+  background-image: url('https://www.metro.us/sites/default/files/styles/normal_article/public/main/articles/2017/12/15/champagne-calories.jpg');
+  background-position: center;
+  background-size: cover;
+  padding-top: 20%;
+  padding-bottom: 20%;
+  margin-bottom: 80px;
+}

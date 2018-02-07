@@ -9,6 +9,23 @@ function GroupsShowCtrl($http, Group, filterFilter, $scope, $sce, $state, User, 
   const groupName = $state.params.groupName;
   const currentUserId = $auth.getPayload().userId;
 
+  //  TABS ON SHOW PAGE
+  vm.selectTab = selectTab;
+
+  vm.tabs = {
+    description: true,
+    map: false,
+    comments: false
+  };
+
+  function selectTab(type) {
+    vm.currentTab = type;
+    vm.tabs.description = false;
+    vm.tabs.map = false;
+    vm.tabs.comments = false;
+    vm.tabs[type] = true;
+  }
+
 
   getEventById();
 

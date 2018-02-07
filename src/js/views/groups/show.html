@@ -1,10 +1,10 @@
-<div class="container is-fluid">
+<div class="container is-fluid show-page-container">
   <ul class="columns is-multiline">
     <li class="column is-half">
       <h3 class="title is-1">{{ vm.eventInformation.name }}</h3>
       <hr>
       <p><strong>Venue:</strong>  {{ vm.eventInformation.venue.name }} </p>
-      <p><strong>Date:</strong> {{ vm.eventInformation.local_date }} </p>
+      <p><strong>Date:</strong> {{ vm.eventInformation.local_date | date:'MMMM d, y' }} </p>
       <p><strong>Time:</strong>  {{ vm.eventInformation.local_time }} </p>
       <p><strong>Status:</strong>  {{ vm.eventInformation.status }} </p>
       <p><strong>Address:</strong>  {{ vm.eventInformation.venue.address_1 }} </p>
@@ -12,62 +12,63 @@
       <p> <strong>Link:</strong>  {{ vm.eventInformation.link }} </p>
       <p> <strong>RSVP Limit:</strong>  {{ vm.eventInformation.rsvp_limit }} </p>
       <hr>
-      <p><strong>Description:</strong>  <span ng-bind-html="vm.eventInformation.description"></span></p>
 
-      <hr>
+
+
       <button ng-click="vm.joinGroup(vm.eventInformation)" type="button" class="button is-danger" ng-if="!vm.isMember">Join Group</button>
       <button ng-click="vm.leaveGroup(vm.eventInformation)" type="button" class="button is-danger" ng-if="vm.isMember">Leave Group</button>
     </li>
     <div class="column is-half">
-      <div class="map">
-        <google-map center="{ lat: vm.eventInformation.group.lat, lng: vm.eventInformation.group.lon }"></google-map>
-      </div>
-
-      <hr>
-      <div class="comments" ng-if="vm.isMember">
-        <h2><strong>Comments</strong></h2>
-        <p ng-if="!vm.group.comments.length">0 comments</p>
-        <ul class="comments__created">
-          <li ng-repeat="comment in vm.group.comments track by $index">
-            <a ui-sref="usersShow({ id: comment.createdBy.id })"><strong>{{ comment.createdBy.username }}</strong></a> - {{ comment.text }}
-            <button class="button" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">Delete</button>
+      <div class="tabs is-centered is-boxed">
+        <ul>
+          <li ng-click="vm.selectTab('description')" ng-class="{'is-active' : vm.currentTab === 'description'}">
+            <a>
+              <span class="icon is-small"><i class="fas fa-info"></i></span>
+              <span>Description</span>
+            </a>
+          </li>
+          <li ng-click="vm.selectTab('map')" ng-class="{'is-active' : vm.currentTab === 'map'}">
+            <a>
+              <span class="icon is-small"><i class="fas fa-map-marker"></i></span>
+              <span>Map</span>
+            </a>
+          </li>
+          <li ng-click="vm.selectTab('comments')" ng-class="{'is-active' : vm.currentTab === 'comments'}">
+            <a>
+              <span class="icon is-small"><i class="fas fa-comments"></i></span>
+              <span>Comments</span>
+            </a>
           </li>
         </ul>
-        <form ng-submit="vm.addComment()" ng-if="main.isAuthenticated()">
-          <label>Add comment</label>
-          <textarea ng-model="vm.newComment.text"></textarea>
-          <button class="button button--full">Comment</button>
-        </form>
+      </div>
+
+      <div ng-if="vm.tabs.description">
+        <p><strong>Description:</strong>  <span ng-bind-html="vm.eventInformation.description"></span></p>
+      </div>
+
+      <div ng-if="vm.tabs.map">
+        <div class="map">
+          <google-map center="{ lat: vm.eventInformation.group.lat, lng: vm.eventInformation.group.lon }"></google-map>
+        </div>
+      </div>
+
+      <div ng-if="vm.tabs.comments">
+        <div class="comments" ng-if="vm.isMember">
+          <h2><strong>Comments</strong></h2>
+          <p ng-if="!vm.group.comments.length">0 comments</p>
+          <ul class="comments__created">
+            <li ng-repeat="comment in vm.group.comments track by $index">
+              <a ui-sref="usersShow({ id: comment.createdBy.id })"><strong>{{ comment.createdBy.username }}</strong></a> - {{ comment.text }}
+              <button class="button" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">Delete</button>
+            </li>
+          </ul>
+          <form ng-submit="vm.addComment()" ng-if="main.isAuthenticated()">
+            <label>Add comment</label>
+            <textarea ng-model="vm.newComment.text"></textarea>
+            <button class="button button--full">Comment</button>
+          </form>
+        </div>
       </div>
     </div>
   </ul>
 </div>
-
-<!-- <div class="tabs is-centered">
-  <ul>
-    <li class="is-active">
-      <a>
-        <span class="icon is-small"><i class="fas fa-image"></i></span>
-        <span>Pictures</span>
-      </a>
-    </li>
-    <li>
-      <a>
-        <span class="icon is-small"><i class="fas fa-music"></i></span>
-        <span>Music</span>
-      </a>
-    </li>
-    <li>
-      <a>
-        <span class="icon is-small"><i class="fas fa-film"></i></span>
-        <span>Videos</span>
-      </a>
-    </li>
-    <li>
-      <a>
-        <span class="icon is-small"><i class="fas fa-file-alt"></i></span>
-        <span>Documents</span>
-      </a>
-    </li>
-  </ul>
-</div> -->

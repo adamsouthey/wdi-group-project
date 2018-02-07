@@ -8,7 +8,8 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   country: { type: String, required: true },
-  image: { type: String }
+  image: { type: String },
+  interests: [{ type: Object }]
 });
 
 userSchema.virtual('groups', {

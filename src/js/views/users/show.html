@@ -1,23 +1,58 @@
-
-
-<div class="container">
-
-</div>
 <div class="container user-groups">
   <div class="columns">
     <div class="column is-one-third">
       <h1 class="title">{{ vm.user.username }}'s Profile</h1>
       <img src ="{{ vm.user.image }}">
-
       <p><strong>Account Information</strong></p>
     </div>
     <p ng-if="!vm.user.groups.length">0 groups</p>
+
     <div class="column is-two-third">
       <div class="columns is-multiline">
-        <div ng-repeat="group in vm.user.groups" class="column is-one-quarter single-events">
-          <a ui-sref="groupsShow({ groupName: group.urlname, id: group.meetupId })"><p class="profile-group-name">{{ group.eventName }}</p></a>
+        <div ng-repeat="group in vm.user.groups" class="single-events">
+          <div class="box index-events">
+            <div class="index-events__date">
+              <div class="index-events__date__top">
+                <p>{{ group.local_date | date:'MMM'}}</p>
+              </div>
+              <div class="index-events__date__bottom">
+                <p>{{ group.local_date | date:'dd'}}</p>
+              </div>
+            </div>
+            <div class="index-events-details">
+              <a ui-sref="groupsShow({ groupName: group.urlname, id: group.meetupId })"><p class="profile-group-name">{{ group.eventName }}</p></a>
+              <h4 class="subtitle is-5">{{ group.venue.name }}</h4>
+              <button ui-sref="groupsShow({ groupName: group.urlname, id: group.meetupId })" type="button" class="button is-danger">View Event</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+<!-- <div class="container">
+  <div class="columns is-multiline">
+    <div ng-repeat="group in vm.filtered" class="column is-three-fifths
+    is-offset-one-fifth">
+      <div class="box index-events">
+        <div class="index-events__date">
+          <div class="index-events__date__top">
+            <p>{{ group.local_date | date:'MMM'}}</p>
+          </div>
+          <div class="index-events__date__bottom">
+            <p>{{ group.local_date | date:'dd'}}</p>
+          </div>
+        </div>
+        <div class="index-events-details">
+          <a ui-sref="groupsShow({ groupName: group.group.urlname, id: group.id })"><h2 class="title is-4">{{ group.name }}</h2></a>
+          <h4 class="subtitle is-5">{{ group.venue.name }}</h4>
+          <button ng-click="vm.joinGroup(group)" type="button" class="button is-danger" ng-if="!vm.isInGroup(group)">Join Group</button>
+          <button ng-click="vm.leaveGroup(group)" type="button" class="button is-danger" ng-if="vm.isInGroup(group)">Leave Group</button>
+          <button ui-sref="groupsShow({ groupName: group.group.urlname, id: group.id })" type="button" class="button is-danger">View Event</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

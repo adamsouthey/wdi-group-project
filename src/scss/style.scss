@@ -1,6 +1,7 @@
 img{
-  height: 50px;
-  width: 50px;
+  height: 300px;
+  width: 300px;
+  border-radius: 20px;
 }
 
 .map{
@@ -91,9 +92,7 @@ img {
 
 // PROFILE PAGE
 .single-events {
-  border: 1px solid red;
   margin: 5px;
-  border-radius: 5%;
 }
 
 .profile-group-name {

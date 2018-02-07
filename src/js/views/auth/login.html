@@ -1,17 +1,24 @@
 <section class="section">
   <div class="columns">
     <div class="column is-half is-offset-one-quarter">
-      <form ng-submit="vm.submit()">
+      <h1 class="title">Login</h1>
+      <form ng-submit="vm.submit()" name="vm.loginForm">
         <div class="field">
           <label class="label" for="email">Email</label>
           <p class="control">
-            <input class="input" type="text" name="email" id="email" ng-model="vm.credentials.email">
+            <input class="input" type="text" name="email" id="email" ng-model="vm.credentials.email" required>
+            <div ng-if="vm.loginForm.email.$touched && !vm.loginForm.email.$valid" ng-messages="vm.loginForm.email.$error" role="alert">
+              <div ng-message="required">Enter Email!</div>
+            </div>
           </p>
         </div>
         <div class="field">
           <label class="label" for="password">Password</label>
           <p class="control">
-            <input class="input" type="password" name="password" id="password" ng-model="vm.credentials.password">
+            <input class="input" type="password" name="password" id="password" ng-model="vm.credentials.password" required>
+            <div ng-if="vm.loginForm.password.$touched && !vm.loginForm.password.$valid" ng-messages="vm.loginForm.password.$error" role="alert">
+              <div ng-message="required">Enter Password!</div>
+            </div>
           </p>
         </div>
 

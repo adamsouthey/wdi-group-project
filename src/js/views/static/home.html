@@ -5,9 +5,9 @@
   <div class="hero-body hero-padding homepage-image">
     <div class="container has-text-centered" id="splashMessage">
       <h1 class="title">
-        Meetup, learn and socialise
+        Meet up, explore, learn, socialise
       </h1>
-      <button ui-sref="groupsIndex" type="button" class="button is-dark">View Events</button>
+      <button ui-sref="groupsIndex" type="button" ng-if="main.isAuthenticated()" class="button is-dark">View Events</button>
     </div>
   </div>
 </section>

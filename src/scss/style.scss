@@ -37,6 +37,34 @@ img {
 
 .index-events {
   margin-top: 5px;
+  display: flex;
+  &__date {
+    margin-right: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    width: 75px;
+    height: 75px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+    &__top {
+      background-color: hsl(348, 100%, 61%);
+      color: white;
+      padding: 4px 8px;
+    }
+    &__bottom {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 28px;
+      font-weight: bold;
+      flex-grow: 1;
+    }
+  }
 }
 
 .hero-padding {

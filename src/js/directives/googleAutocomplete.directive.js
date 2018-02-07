@@ -7,10 +7,12 @@ function googleAutocomplete($window) {
   return {
     restrict: 'A',
     require: 'ngModel',
+    scope: {
+      location: '='
+    },
     link: function(scope, element, attrs, model) {
       var options = {
-        types: ['(cities)'],
-        componentRestrictions: {}
+        types: ['(cities)']
       };
       scope.inputBox = new $window.google.maps.places.Autocomplete(element[0], options);
 
@@ -24,9 +26,9 @@ function googleAutocomplete($window) {
             lng: locationData.geometry.location.lng()
           };
 
-          console.log(location);
-
-          model.$setViewValue(location);
+          scope.location = location;
+          // updating vm.city to be the string
+          model.$setViewValue(element.val());
         });
       });
     }

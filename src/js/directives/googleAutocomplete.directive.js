@@ -11,7 +11,7 @@ function googleAutocomplete($window) {
     link: function(scope, element, attrs, model) {
       var options = {
         types: ['(cities)'],
-        componentRestrictions: {country: 'uk'}
+        componentRestrictions: {}
       };
       scope.inputBox = new $window.google.maps.places.Autocomplete(element[0], options);
 

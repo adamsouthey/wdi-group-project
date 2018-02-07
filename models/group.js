@@ -11,7 +11,9 @@ commentSchema.set('toJSON', { virtuals: true });
 const groupSchema = new mongoose.Schema({
   eventName: String,
   meetupId: String,
+  localDate: String,
   urlname: String,
+  city: String,
   members: [{ type: mongoose.Schema.ObjectId, ref: 'User'}],
   comments: [ commentSchema ]
 });

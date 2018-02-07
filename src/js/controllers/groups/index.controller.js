@@ -71,8 +71,11 @@ function GroupsIndexCtrl($http, Group, filterFilter, $scope, $sce, $auth, User, 
   vm.filterGroup = filterGroup;
 
   function joinGroup(group) {
+
     const newGroup = {
-      name: group.name
+      name: group.name,
+      localDate: group.local_date,
+      city: group.venue.city
     };
     Group
       .join({ meetupId: group.id, urlname: group.group.urlname }, newGroup)

@@ -39,17 +39,26 @@ img {
   margin-top: 5px;
 }
 
+.index {
+  height: calc(100vh - 3.25rem);
+}
+
 .hero-padding {
   padding: 0;
 }
 
 .homepage-image {
-  background-image: url('https://www.metro.us/sites/default/files/styles/normal_article/public/main/articles/2017/12/15/champagne-calories.jpg');
+  background-image: url('http://hdgifs.com/wp-content/uploads/2017/01/citylarge.gif');
   background-position: center;
   background-size: cover;
-  padding-top: 20%;
+  opacity: 0.8;
+  padding-top: 10%;
   padding-bottom: 20%;
-  margin-bottom: 80px;
+}
+
+#splashMessage {
+  align-self: flex-start;
+
 }
 
 // PROFILE PAGE

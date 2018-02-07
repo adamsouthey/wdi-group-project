@@ -1,13 +1,16 @@
-<div class="row user">
-  <div class="col-md-12">
-    <h3>{{ vm.user.username }}'s groups</h3>
+<div class="container">
+  <div class="column">
+    <h1 class="title">{{ vm.user.username }}'s Profile</h1>
+    <h3 class="subtitle">{{ vm.user.username }}'s groups</h3>
     <p ng-if="!vm.user.groups.length">0 groups</p>
   </div>
-  <!-- <div ng-repeat="post in vm.user.posts" class="col-sm-6 col-md-4 col-lg-3">
-    <div class="posts__single">
-      <div class="posts__single-image" style="background-image:url('{{ post.image }}')" ui-sref="postsShow({ id: post.id })"></div>
+  <!-- <div ng-repeat="group in vm.user.filtered">
+    <div class="">
+      <a ui-sref="groupsShow({ groupName: group.group.urlname, id: group.id })"><h2 class="title is-4">{{ group.name }}</h2></a>
+      <h4 class="subtitle is-5">{{ group.venue.name }}</h4>
     </div>
+  </div> -->
+  <div ng-repeat="group in vm.user.groups">
+    <p>{{vm.user.groups}}</p>
   </div>
-</div> -->
-
-<h1>{{ vm.user.username }}'s Profile</h1>
+</div>

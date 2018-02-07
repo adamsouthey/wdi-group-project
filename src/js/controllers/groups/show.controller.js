@@ -2,11 +2,13 @@ angular
   .module('eventApp')
   .controller('GroupsShowCtrl', GroupsShowCtrl);
 
-GroupsShowCtrl.$inject = ['$http', 'Group', 'filterFilter', '$scope', '$sce', '$state'];
-function GroupsShowCtrl($http, Group, filterFilter, $scope, $sce, $state) {
+GroupsShowCtrl.$inject = ['$http', 'Group', 'filterFilter', '$scope', '$sce', '$state', 'User', '$auth'];
+function GroupsShowCtrl($http, Group, filterFilter, $scope, $sce, $state, User, $auth) {
   const vm = this;
   const meetupId = $state.params.id;
   const groupName = $state.params.groupName;
+  const currentUserId = $auth.getPayload().userId;
+
 
   getEventById();
 
@@ -22,11 +24,20 @@ function GroupsShowCtrl($http, Group, filterFilter, $scope, $sce, $state) {
         Group
           .get({ meetupId })
           .$promise
-          .then((group) => vm.group = group);
+          .then((group) => {
+            vm.group = group;
+
+            if(vm.group.members.indexOf(currentUserId) > -1) {
+              vm.isMember = true;
+            } else {
+              vm.isMember = false;
+            }
+          });
       });
 
   }
 
+  // COMMENTS
   function addComment() {
     Group
       .addComment({ meetupId: meetupId }, vm.newComment)
@@ -51,5 +62,32 @@ function GroupsShowCtrl($http, Group, filterFilter, $scope, $sce, $state) {
   vm.deleteComment = deleteComment;
 
 
+  function foundMember(currentUserId) {
+    return vm.group.members.indexOf(currentUserId) > -1;
+  }
+  vm.foundMember = foundMember;
 
+  function joinGroup(group) {
+    Group
+      .join({ meetupId: group.id, urlname: group.group.urlname })
+      .$promise
+      .then((group) => {
+        vm.currentUser = User.get({ id: currentUserId });
+        vm.group = group;
+        vm.isMember = true;
+      });
+  }
+  vm.joinGroup = joinGroup;
+
+  function leaveGroup(group) {
+    Group
+      .leave({ meetupId: group.id })
+      .$promise
+      .then(() => {
+        vm.currentUser = User.get({ id: currentUserId });
+        vm.group = group;
+        vm.isMember = false;
+      });
+  }
+  vm.leaveGroup = leaveGroup;
 }

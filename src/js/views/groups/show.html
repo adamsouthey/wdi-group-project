@@ -3,8 +3,6 @@
     <li class="column is-half">
       <h3 class="title is-1">{{ vm.eventInformation.name }}</h3>
       <hr>
-      <!-- <img src="{{ vm.eventInformation.image }}" alt="Event image"> -->
-      <!-- <p><strong>Fee: £ {{ vm.eventInformation.fee }} </p> -->
       <p><strong>Venue:</strong>  {{ vm.eventInformation.venue.name }} </p>
       <p><strong>Date:</strong> {{ vm.eventInformation.local_date }} </p>
       <p><strong>Time:</strong>  {{ vm.eventInformation.local_time }} </p>
@@ -16,16 +14,21 @@
       <hr>
       <p><strong>Description:</strong>  <span ng-bind-html="vm.eventInformation.description"></span></p>
 
-      <button ng-click="vm.joinGroup(group)" type="button" class="button is-danger" ng-if="!vm.isInGroup(group)">Join Group</button>
-      <button ng-click="vm.leaveGroup(group)" type="button" class="button is-danger" ng-if="vm.isInGroup(group)">Leave Group</button>
+      <hr>
+      <p>foundMember(){{ vm.foundMember(main.currentUserId) }}</p>
+      <p>vm.group.members{{vm.group.members}}</p>
+      <p>main.currentUserId {{main.currentUserId}}</p>
+      <button ng-click="vm.joinGroup(vm.eventInformation)" type="button" class="button is-danger" ng-if="!vm.isMember">Join Group</button>
+      <button ng-click="vm.leaveGroup(vm.eventInformation)" type="button" class="button is-danger" ng-if="vm.isMember">Leave Group</button>
     </li>
     <div class="column is-half">
       <div class="map">
         <google-map center="{ lat: vm.eventInformation.group.lat, lng: vm.eventInformation.group.lon }"></google-map>
       </div>
 
-      <div class="comments">
-        <h2>Comments</h2>
+      <hr>
+      <div class="comments" ng-if="vm.isMember">
+        <h2><strong>Comments</strong></h2>
         <p ng-if="!vm.group.comments.length">0 comments</p>
         <ul class="comments__created">
           <li ng-repeat="comment in vm.group.comments track by $index">
@@ -42,3 +45,32 @@
     </div>
   </ul>
 </div>
+
+<!-- <div class="tabs is-centered">
+  <ul>
+    <li class="is-active">
+      <a>
+        <span class="icon is-small"><i class="fas fa-image"></i></span>
+        <span>Pictures</span>
+      </a>
+    </li>
+    <li>
+      <a>
+        <span class="icon is-small"><i class="fas fa-music"></i></span>
+        <span>Music</span>
+      </a>
+    </li>
+    <li>
+      <a>
+        <span class="icon is-small"><i class="fas fa-film"></i></span>
+        <span>Videos</span>
+      </a>
+    </li>
+    <li>
+      <a>
+        <span class="icon is-small"><i class="fas fa-file-alt"></i></span>
+        <span>Documents</span>
+      </a>
+    </li>
+  </ul>
+</div> -->

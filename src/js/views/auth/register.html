@@ -9,6 +9,18 @@
           </p>
         </div>
         <div class="field">
+          <label class="label" for="email">First Name</label>
+          <p class="control">
+            <input class="input" type="text" name="firstname" id="firstname" ng-model="vm.user.firstname">
+          </p>
+        </div>
+        <div class="field">
+          <label class="label" for="email">Last Name</label>
+          <p class="control">
+            <input class="input" type="text" name="lastname" id="lastname" ng-model="vm.user.lastname">
+          </p>
+        </div>
+        <div class="field">
           <label class="label" for="email">Email</label>
           <p class="control">
             <input class="input" type="text" name="email" id="email" ng-model="vm.user.email">
@@ -25,6 +37,35 @@
           <p class="control">
             <input class="input" type="password" name="passwordConfirmation" id="passwordConfirmation" ng-model="vm.user.passwordConfirmation">
           </p>
+        </div>
+        <!-- //Image Upload -->
+        <div class="field">
+          <label class="label">Profile Picture</label>
+          <div class="control">
+            <div class="file">
+              <label class="file-label">
+                <input class="file-input" type="file" ng-model="vm.user.image" upload-image>
+                <span class="file-cta">
+                  <span class="file-icon">
+                    <i class="fa fa-upload"></i>
+                  </span>
+                  <span class="file-label">
+                    Choose a file…
+                  </span>
+                </span>
+              </label>
+            </div>
+          </div>
+          <div class="field" ng-if="vm.user.image">
+            <label class="label">Profile Picture Preview</label>
+            <div class="control">
+              <figure class="image is-128x128">
+                <img src="{{ vm.user.image }}">
+              </figure>
+
+            </div>
+
+          </div>
         </div>
 
         <div class="field">

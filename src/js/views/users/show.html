@@ -2,6 +2,10 @@
   <div class="column">
     <h1 class="title">{{ vm.user.username }}'s Profile</h1>
     <h3 class="subtitle">{{ vm.user.username }}'s groups</h3>
+    <img src ="{{ vm.user.image }}">
+    <h3 class="subtitle">{{ vm.user.firstname }} </h3>
+    <h3 class="subtitle">{{ vm.user.lastname }}</h3>
+
     <p ng-if="!vm.user.groups.length">0 groups</p>
   </div>
   <!-- <div ng-repeat="group in vm.user.filtered">

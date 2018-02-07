@@ -29,7 +29,7 @@ function joinGroupRoute(req, res, next) {
     .then((group) => {
       if (!group) {
         return Group
-          .create({ meetupId: req.params.meetupId, members: [req.user.id], urlname: req.params.urlname, eventName: req.body.name });
+          .create({ meetupId: req.params.meetupId, members: [req.user.id], urlname: req.params.urlname, eventName: req.body.name, localDate: req.body.localDate, city: req.body.city });
       } else {
 
         group.members.push(req.user.id);

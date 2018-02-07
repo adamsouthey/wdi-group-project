@@ -36,7 +36,7 @@
         </div>
         <div class="index-events-details">
           <a ui-sref="groupsShow({ groupName: group.group.urlname, id: group.id })"><h2 class="title is-4">{{ group.name }}</h2></a>
-          <h4 class="subtitle is-5">{{ group.venue.name }}</h4>
+          <h4 class="subtitle is-5">{{ group.venue.city }}</h4>
           <button ng-click="vm.joinGroup(group)" type="button" class="button is-danger" ng-if="!vm.isInGroup(group)">Join Group</button>
           <button ng-click="vm.leaveGroup(group)" type="button" class="button is-danger" ng-if="vm.isInGroup(group)">Leave Group</button>
           <button ui-sref="groupsShow({ groupName: group.group.urlname, id: group.id })" type="button" class="button is-danger">View Event</button>

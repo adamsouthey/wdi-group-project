@@ -8,6 +8,7 @@
         Meet up, explore, learn, socialise
       </h1>
       <button ui-sref="groupsIndex" type="button" ng-if="main.isAuthenticated()" class="button is-dark">View Events</button>
+      <button ui-sref="register" type="button" ng-if="!main.isAuthenticated()" class="button is-dark">Sign Up</button>
     </div>
   </div>
 </section>

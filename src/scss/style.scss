@@ -1,13 +1,22 @@
+main {
+  // margin: 5%;
+}
+
 img{
   height: 300px;
   width: 300px;
   border-radius: 20px;
 }
 
+.show-page-container {
+  margin: 5%;
+}
+
 .map{
   height: 400px;
   width: 400px;
-  margin: 80px;
+  display: block;
+  margin: 0 auto;
 }
 
 .google-map{

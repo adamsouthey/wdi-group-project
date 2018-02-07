@@ -40,6 +40,15 @@
           </p>
         </div>
         <div class="field">
+          <label class="label" for="country">Country</label>
+          <p class="control">
+            <input class="input" type="text" name="country" id="country" ng-model="vm.user.country" required>
+            <div ng-if="vm.registerForm.lastname.$touched && !vm.registerForm.lastname.$valid" ng-messages="vm.registerForm.lastname.$error" role="alert">
+              <div ng-message="required">Country!</div>
+            </div>
+          </p>
+        </div>
+        <div class="field">
           <label class="label" for="password">Password</label>
           <p class="control">
             <input class="input" type="password" name="password" id="password" ng-model="vm.user.password" required>
@@ -57,6 +66,7 @@
             </div>
           </p>
         </div>
+
         <!-- //Image Upload -->
         <div class="field">
           <label class="label">Profile Picture</label>

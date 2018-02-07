@@ -3,7 +3,14 @@
     <div class="column is-one-third">
       <h1 class="title">{{ vm.user.username }}'s Profile</h1>
       <img src ="{{ vm.user.image }}">
-      <p><strong>Account Information</strong></p>
+      <h1><strong>Account Information</strong></h1>
+      <hr>
+      <h3><strong>Username:</strong> {{ vm.user.username }} </h3>
+      <h3><strong>First Name:</strong> {{ vm.user.firstname }} </h3>
+      <h3><strong>Last Name:</strong> {{ vm.user.lastname }} </h3>
+      <h3><strong>Email:</strong> {{ vm.user.email }} </h3>
+      <h3><strong>Country:</strong> {{ vm.user.country }} </h3>
+      <p><strong>Groups:</strong> {{ vm.user.groups.length }} </h3>
     </div>
     <p ng-if="!vm.user.groups.length">0 groups</p>
 

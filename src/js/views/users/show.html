@@ -8,7 +8,7 @@
   <div class="container">
     <div class="columns is-multiline">
     <div ng-repeat="group in vm.user.groups" class="column is-one-quarter single-events">
-      <a ui-sref="groupsShow({ groupName: group.group.urlname, id: group.id })"><p class="profile-group-name">{{ group.eventName }}</p></a>
+      <a ui-sref="groupsShow({ groupName: group.urlname, id: group.meetupId })"><p class="profile-group-name">{{ group.eventName }}</p></a>
     </div>
   </div>
 </div>

@@ -27,11 +27,11 @@ function GroupsIndexCtrl($http, Group, filterFilter, $scope, $sce, $auth, User) 
       });
   }
 
-  getEvents();
+  vm.getEvents = getEvents;
 
   function getEvents(){
     $http
-      .get('/api/events')
+      .get('/api/events', { params: vm.location })
       .then((response) => {
         console.log(response);
         vm.eventInformation = response.data.events.map(event => {
@@ -52,9 +52,11 @@ function GroupsIndexCtrl($http, Group, filterFilter, $scope, $sce, $auth, User) 
   vm.filterGroup = filterGroup;
 
   function joinGroup(group) {
-    console.log('group', group);
+    const newGroup = {
+      name: group.name
+    };
     Group
-      .join({ meetupId: group.id, urlname: group.group.urlname })
+      .join({ meetupId: group.id, urlname: group.group.urlname }, newGroup)
       .$promise
       .then(() => {
         vm.currentUser = User.get({ id: currentUserId });

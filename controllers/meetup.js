@@ -9,8 +9,8 @@ function getEventsProxy(req, res) {
     json: true,
     qs: {
       key: `${apiKey}`,
-      lat: 51.09,
-      lon: -0.12
+      lat: req.query.lat,
+      lon: req.query.lng
     }
   })
     .then(response => res.status(200).json(response))

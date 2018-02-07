@@ -30,15 +30,14 @@ img {
 
 .height-hero {
   padding: 120px 24px;
+  background-image: url('../images/marc-olivier-jodoin-291607.jpg');
+  background-size: auto;
+  background-position: center;
 }
 
 .index-events {
   margin-top: 5px;
 }
-
-// .hover-change:hover {
-//   background-color: #2f2f2f;
-// }
 
 .hero-padding {
   padding: 0;
@@ -51,4 +50,19 @@ img {
   padding-top: 20%;
   padding-bottom: 20%;
   margin-bottom: 80px;
+}
+
+// PROFILE PAGE
+.single-events {
+  border: 1px solid red;
+  margin: 5px;
+  border-radius: 5%;
+}
+
+.profile-group-name {
+  color: black;
+}
+
+.user-groups {
+  margin-top: 40px;
 }

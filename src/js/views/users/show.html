@@ -8,13 +8,26 @@
 
     <p ng-if="!vm.user.groups.length">0 groups</p>
   </div>
-  <!-- <div ng-repeat="group in vm.user.filtered">
-    <div class="">
-      <a ui-sref="groupsShow({ groupName: group.group.urlname, id: group.id })"><h2 class="title is-4">{{ group.name }}</h2></a>
-      <h4 class="subtitle is-5">{{ group.venue.name }}</h4>
+
+  <div class="container">
+
+</div>
+<div class="container user-groups">
+  <div class="columns">
+    <div class="column is-one-third">
+      <h1 class="title">{{ vm.user.username }}'s Profile</h1>
+      <figure class="image is-128x128">
+        <img src="https://bulma.io/images/placeholders/128x128.png">
+      </figure>
+      <p><strong>Account Information</strong></p>
     </div>
-  </div> -->
-  <div ng-repeat="group in vm.user.groups">
-    <p>{{vm.user.groups}}</p>
+    <p ng-if="!vm.user.groups.length">0 groups</p>
+    <div class="column is-two-third">
+      <div class="columns is-multiline">
+      <div ng-repeat="group in vm.user.groups" class="column is-one-quarter single-events">
+        <a ui-sref="groupsShow({ groupName: group.urlname, id: group.meetupId })"><p class="profile-group-name">{{ group.eventName }}</p></a>
+      </div>
+    </div>
+    </div>
   </div>
 </div>

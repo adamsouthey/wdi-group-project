@@ -15,9 +15,6 @@
       <p><strong>Description:</strong>  <span ng-bind-html="vm.eventInformation.description"></span></p>
 
       <hr>
-      <p>foundMember(){{ vm.foundMember(main.currentUserId) }}</p>
-      <p>vm.group.members{{vm.group.members}}</p>
-      <p>main.currentUserId {{main.currentUserId}}</p>
       <button ng-click="vm.joinGroup(vm.eventInformation)" type="button" class="button is-danger" ng-if="!vm.isMember">Join Group</button>
       <button ng-click="vm.leaveGroup(vm.eventInformation)" type="button" class="button is-danger" ng-if="vm.isMember">Leave Group</button>
     </li>

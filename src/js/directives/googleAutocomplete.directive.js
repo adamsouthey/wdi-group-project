@@ -4,7 +4,6 @@ angular
 
 googleAutocomplete.$inject = ['$window'];
 function googleAutocomplete($window) {
-  console.log('fire first');
   return {
     restrict: 'A',
     require: 'ngModel',

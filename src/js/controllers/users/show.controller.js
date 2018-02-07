@@ -18,5 +18,6 @@ function UsersShowCtrl(User, $state, $http) {
         // vm.groupInformation = response.data.group;
         // return group;
       });
+
   }
 }

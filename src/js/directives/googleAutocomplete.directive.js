@@ -4,14 +4,13 @@ angular
 
 googleAutocomplete.$inject = ['$window'];
 function googleAutocomplete($window) {
-  console.log('fire first');
   return {
     restrict: 'A',
     require: 'ngModel',
     link: function(scope, element, attrs, model) {
       var options = {
         types: ['(cities)'],
-        componentRestrictions: {country: 'uk'}
+        componentRestrictions: {}
       };
       scope.inputBox = new $window.google.maps.places.Autocomplete(element[0], options);
 

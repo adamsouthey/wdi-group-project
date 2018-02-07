@@ -6,6 +6,13 @@ GroupsIndexCtrl.$inject = ['$http', 'Group', 'filterFilter', '$scope', '$sce', '
 function GroupsIndexCtrl($http, Group, filterFilter, $scope, $sce, $auth, User) {
   const vm = this;
 
+  vm.defaultLocation ={
+    lat: 51.509865,
+    lng: -0.118092
+  };
+
+  getEvents();
+
   const currentUserId = $auth.getPayload().userId;
   // inside vm.currentUserId you would have .groups which is an array of populated group objs from your database, which includes the meetupId
   vm.currentUser = User.get({ id: currentUserId });
@@ -31,7 +38,7 @@ function GroupsIndexCtrl($http, Group, filterFilter, $scope, $sce, $auth, User) 
 
   function getEvents(){
     $http
-      .get('/api/events', { params: vm.location })
+      .get('/api/events', { params: vm.location || vm.defaultLocation })
       .then((response) => {
         console.log(response);
         vm.eventInformation = response.data.events.map(event => {

@@ -1,0 +1,81 @@
+// INDEX PAGE
+
+section {
+  div {
+    &.height-hero {
+      padding: 120px 24px;
+      background-image: url('../images/marc-olivier-jodoin-291607.jpg');
+      background-size: auto;
+      background-position: center;
+    }
+    div {
+      h1 {
+        &.logo-index {
+          margin-bottom: 30px;
+        }
+        &.logo-index:before {
+          content: 'social';
+          color: $logo-first-color;
+          font-size: 60px;
+          font-weight: bold;
+          font-family: $primary-font;
+        }
+        &.logo-index:after {
+          content: 'city';
+          color: $logo-second-color;
+          font-size: 60px;
+          font-weight: bold;
+          font-family: $primary-font;
+        }
+      }
+    }
+    div {
+      form {
+        input {
+          &.input-box {
+            border: 0;
+            outline: none;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+div {
+  .index-events {
+    margin-top: 15px;
+    display: flex;
+    &__date {
+      margin-right: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: bold;
+      width: 75px;
+      height: 75px;
+      flex-shrink: 0;
+      box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+      &__top {
+        background-color: $primary-color;
+        color: white;
+      }
+      &__bottom {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 28px;
+        font-weight: bold;
+        flex-grow: 1;
+      }
+    }
+  }
+
+}
+
+.index-events-margin{
+  margin-top: 15px;
+}

@@ -1,0 +1,36 @@
+// PROFILE PAGE - USERS SHOW
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+div {
+  &.user-groups {
+    margin-top: 40px;
+  }
+  div {
+    div {
+      img {
+        &.profile-picture {
+          height: 300px;
+          width: 300px;
+          border-radius: 20px;
+        }
+      }
+    }
+    div {
+      &.single-events {
+        margin: 5px;
+      }
+    }
+    div {
+      a {
+        p{
+          &.profile-group-name {
+            color: $font-color;
+          }
+        }
+      }
+    }
+  }
+}

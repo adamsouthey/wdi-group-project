@@ -1,0 +1,22 @@
+// NAVBAR LOGO
+
+div {
+  a {
+    h1 {
+      &.logo-nav:before {
+          content: 'social';
+          color: $logo-first-color;
+          font-size: 25px;
+          font-weight: bold;
+          font-family: $primary-font;
+      }
+      &.logo-nav:after {
+          content: 'city';
+          color:$logo-second-color;
+          font-size: 25px;
+          font-weight: bold;
+          font-family: $primary-font;
+      }
+    }
+  }
+}

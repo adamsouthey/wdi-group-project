@@ -1,0 +1,25 @@
+// LANDING PAGE
+
+section {
+  &.homepage-display {
+    height: calc(100vh - 3.25rem);
+  }
+  div {
+    &.hero-padding {
+      padding: 0;
+    }
+    &.homepage-image {
+      background-image: url('http://hdgifs.com/wp-content/uploads/2017/01/citylarge.gif');
+      background-position: center;
+      background-size: cover;
+      opacity: 0.8;
+      padding-top: 10%;
+      padding-bottom: 20%;
+    }
+    div {
+      &#splashMessage {
+        align-self: flex-start;
+      }
+    }
+  }
+}

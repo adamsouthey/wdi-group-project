@@ -1,0 +1,47 @@
+// DISPLAYING A SINGLE EVENT
+
+div {
+  &.show-page-container {
+    margin: 5%;
+  }
+  div {
+    &.tabs {
+      li {
+        &.is-active {
+          a {
+            color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+  li {
+    a {
+      &.tab-names {
+        color: $primary-color;
+      }
+    }
+  }
+  div {
+    &.map{
+      height: 400px;
+      width: 400px;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  div {
+    p {
+      a {
+        color: $font-color;
+      }
+      button {
+        &.delete-button {
+          border: 0;
+          padding: 0;
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}

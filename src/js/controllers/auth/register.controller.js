@@ -23,8 +23,6 @@ function RegisterCtrl($auth, $state) {
       vm.user.interests.splice(index, 1);
     }
 
-    console.log(vm.user.interests);
-    // console.log('vm.user.interests',vm.user.interests);
   }
   vm.showInterests = showInterests;
 }

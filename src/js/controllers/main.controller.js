@@ -33,7 +33,6 @@ function MainCtrl($transitions, $rootScope, $state, $auth) {
   });
 
   $rootScope.$on('error', (e, err) => {
-    // console.log(e, err);
     vm.message = err.data.message;
 
     if(err.status === 401 && vm.pageName !== 'login') {

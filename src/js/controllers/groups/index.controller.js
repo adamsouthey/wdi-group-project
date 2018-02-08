@@ -37,7 +37,6 @@ function GroupsIndexCtrl($http, Group, filterFilter, $scope, $sce, $auth, User, 
     $http
       .get('/api/weather')
       .then((response) => {
-        console.log(response);
         vm.weatherSummary = response.data.minutely.summary;
       });
   }

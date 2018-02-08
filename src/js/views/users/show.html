@@ -3,7 +3,6 @@
     <div class="column is-one-third">
       <h1 class="title">{{ vm.user.username }}'s Profile</h1>
       <img class="profile-picture" src ="{{ vm.user.image }}">
-      <h1><strong>Account Information</strong></h1>
       <hr>
       <h3><strong>Username:</strong> {{ vm.user.username }} </h3>
       <h3><strong>First Name:</strong> {{ vm.user.firstname }} </h3>
@@ -12,7 +11,6 @@
       <h3><strong>Country:</strong> {{ vm.user.country }} </h3>
       <p><strong>Groups:</strong> {{ vm.user.groups.length }} </h3>
       <p>Interests {{ vm.user.interests }} </p>
-      <p>{{vm.user}}</p>
     </div>
 
     <div class="column is-two-third">

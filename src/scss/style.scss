@@ -1,22 +1,16 @@
-main {
-  // margin: 5%;
-}
-
-img{
-  height: 300px;
-  width: 300px;
-  border-radius: 20px;
-}
-
-.show-page-container {
-  margin: 5%;
-}
-
-.map{
-  height: 400px;
-  width: 400px;
-  display: block;
-  margin: 0 auto;
+// EVENT SHOW PAGE
+div {
+  &.show-page-container {
+    margin: 5%;
+  }
+  div {
+    &.map{
+      height: 400px;
+      width: 400px;
+      display: block;
+      margin: 0 auto;
+    }
+  }
 }
 
 .google-map{
@@ -24,89 +18,123 @@ img{
   width: 400px;
 }
 
-img {
-  &.home {
-    background-size: cover;
-  }
-}
+
 
 // INDEX PAGE
-.input-box {
-  border: 0;
-  outline: none;
-  font-size: 20px;
-}
 
-.height-hero {
-  padding: 120px 24px;
-  background-image: url('../images/marc-olivier-jodoin-291607.jpg');
-  background-size: auto;
-  background-position: center;
-}
-
-.index-events {
-  margin-top: 5px;
-  display: flex;
-  &__date {
-    margin-right: 20px;
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    text-transform: uppercase;
-    text-align: center;
-    font-weight: bold;
-    width: 75px;
-    height: 75px;
-    flex-shrink: 0;
-    box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
-    &__top {
-      background-color: hsl(348, 100%, 61%);
-      color: white;
-      padding: 4px 8px;
+section {
+  div {
+    &.height-hero {
+      padding: 120px 24px;
+      background-image: url('../images/marc-olivier-jodoin-291607.jpg');
+      background-size: auto;
+      background-position: center;
     }
-    &__bottom {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 28px;
-      font-weight: bold;
-      flex-grow: 1;
+    div {
+      form {
+        input {
+          &.input-box {
+            border: 0;
+            outline: none;
+            font-size: 20px;
+          }
+        }
+      }
     }
   }
 }
 
-.index {
-  height: calc(100vh - 3.25rem);
+div {
+  .index-events {
+    margin-top: 5px;
+    display: flex;
+    &__date {
+      margin-right: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: bold;
+      width: 75px;
+      height: 75px;
+      flex-shrink: 0;
+      box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+      &__top {
+        background-color: hsl(348, 100%, 61%);
+        color: white;
+        padding: 4px 8px;
+      }
+      &__bottom {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 28px;
+        font-weight: bold;
+        flex-grow: 1;
+      }
+    }
+  }
+
 }
 
-.hero-padding {
-  padding: 0;
+// HOMEPAGE
+
+section {
+  &.homepage-display {
+    height: calc(100vh - 3.25rem);
+  }
+  div {
+    &.hero-padding {
+      padding: 0;
+    }
+    &.homepage-image {
+      background-image: url('http://hdgifs.com/wp-content/uploads/2017/01/citylarge.gif');
+      background-position: center;
+      background-size: cover;
+      opacity: 0.8;
+      padding-top: 10%;
+      padding-bottom: 20%;
+    }
+    div {
+      &#splashMessage {
+        align-self: flex-start;
+      }
+    }
+  }
 }
 
-.homepage-image {
-  background-image: url('http://hdgifs.com/wp-content/uploads/2017/01/citylarge.gif');
-  background-position: center;
-  background-size: cover;
-  opacity: 0.8;
-  padding-top: 10%;
-  padding-bottom: 20%;
-}
 
-#splashMessage {
-  align-self: flex-start;
+// PROFILE PAGE - USERS SHOW
 
-}
-
-// PROFILE PAGE
-.single-events {
-  margin: 5px;
-}
-
-.profile-group-name {
-  color: black;
-}
-
-.user-groups {
-  margin-top: 40px;
+div {
+  &.user-groups {
+    margin-top: 40px;
+  }
+  div {
+    div {
+      img {
+        &.profile-picture {
+          height: 300px;
+          width: 300px;
+          border-radius: 20px;
+        }
+      }
+    }
+    div {
+      &.single-events {
+        margin: 5px;
+      }
+    }
+    div {
+      a {
+        p{
+          &.profile-group-name {
+            color: black;
+          }
+        }
+      }
+    }
+  }
 }

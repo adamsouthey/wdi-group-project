@@ -13,8 +13,8 @@ function GroupsShowCtrl($http, Group, filterFilter, $scope, $sce, $state, User, 
   vm.selectTab = selectTab;
 
   vm.tabs = {
-    description: true,
-    map: false,
+    description: false,
+    map: true,
     comments: false
   };
 

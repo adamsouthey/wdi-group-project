@@ -8,6 +8,8 @@ function RegisterCtrl($auth, $state) {
   vm.user = { interests: []};
 
   function submit() {
+    console.log('vm.user:',vm.user);
+    console.log('typeof vm.user.interests:', typeof vm.user.interests);
     $auth.signup(vm.user)
       .then(() => $state.go('login'));
   }

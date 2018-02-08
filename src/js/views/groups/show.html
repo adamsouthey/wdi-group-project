@@ -13,8 +13,6 @@
       <p> <strong>RSVP Limit:</strong>  {{ vm.eventInformation.rsvp_limit }} </p>
       <hr>
 
-
-
       <button ng-click="vm.joinGroup(vm.eventInformation)" type="button" class="button is-danger" ng-if="!vm.isMember">Join Group</button>
       <button ng-click="vm.leaveGroup(vm.eventInformation)" type="button" class="button is-danger" ng-if="vm.isMember">Leave Group</button>
     </li>
@@ -22,19 +20,19 @@
       <div class="tabs is-centered is-boxed is-medium">
         <ul>
           <li ng-click="vm.selectTab('description')" ng-class="{'is-active' : vm.currentTab === 'description'}">
-            <a>
+            <a class="tab-names">
               <span class="icon is-small"><i class="fas fa-info"></i></span>
               <span>Description</span>
             </a>
           </li>
           <li ng-click="vm.selectTab('map')" ng-class="{'is-active' : vm.currentTab === 'map'}">
-            <a>
+            <a class="tab-names">
               <span class="icon is-small"><i class="fas fa-map-marker"></i></span>
               <span>Map</span>
             </a>
           </li>
           <li ng-click="vm.selectTab('comments')" ng-class="{'is-active' : vm.currentTab === 'comments'}">
-            <a>
+            <a class="tab-names">
               <span class="icon is-small"><i class="fas fa-comments"></i></span>
               <span>Comments</span>
             </a>
@@ -53,19 +51,43 @@
       </div>
 
       <div ng-if="vm.tabs.comments">
-        <div class="comments" ng-if="vm.isMember">
-          <h2><strong>Comments</strong></h2>
+        <div ng-if="!vm.isMember">
+          <p>Join the group to view comments</p>
+        </div>
+        <div ng-if="vm.isMember">
           <p ng-if="!vm.group.comments.length">0 comments</p>
           <ul class="comments__created">
             <li ng-repeat="comment in vm.group.comments track by $index">
-              <a ui-sref="usersShow({ id: comment.createdBy.id })"><strong>{{ comment.createdBy.username }}</strong></a> - {{ comment.text }}
-              <button class="button" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">Delete</button>
+              <!-- <a ui-sref="usersShow({ id: comment.createdBy.id })"><strong>{{ comment.createdBy.username }}</strong></a> - {{ comment.text }} -->
+              <article class="media">
+                <div class="media-content">
+                  <p>
+                    <a ui-sref="usersShow({ id: comment.createdBy.id })"><strong>{{ comment.createdBy.username }}</strong></a>
+                    <br>
+                    {{ comment.text }}
+                    <br>
+                    <button class="button delete-button" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">Delete</button>
+                    </p>
+                </div>
+              </article>
             </li>
           </ul>
           <form ng-submit="vm.addComment()" ng-if="main.isAuthenticated()">
-            <label>Add comment</label>
-            <textarea ng-model="vm.newComment.text"></textarea>
-            <button class="button button--full">Comment</button>
+            <hr>
+            <article class="media">
+              <div class="media-content">
+                <div class="field">
+                  <p class="control">
+                    <textarea class="textarea" ng-model="vm.newComment.text" placeholder="Add a comment ..."></textarea>
+                  </p>
+                </div>
+                <div class="field">
+                  <p class="control">
+                    <button class="button button--full">Post comment</button>
+                  </p>
+                </div>
+              </div>
+            </article>
           </form>
         </div>
       </div>

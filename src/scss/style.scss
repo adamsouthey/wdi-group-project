@@ -4,11 +4,43 @@ div {
     margin: 5%;
   }
   div {
+    &.tabs {
+      li {
+        &.is-active {
+          a {
+            color: hsl(348, 100%, 61%);
+          }
+        }
+      }
+    }
+  }
+  li {
+    a {
+      &.tab-names {
+        color: hsl(348, 100%, 61%);
+      }
+    }
+  }
+  div {
     &.map{
       height: 400px;
       width: 400px;
       display: block;
       margin: 0 auto;
+    }
+  }
+  div {
+    p {
+      a {
+        color: black;
+      }
+      button {
+        &.delete-button {
+          border: 0;
+          padding: 0;
+          color: hsl(348, 100%, 61%);
+        }
+      }
     }
   }
 }

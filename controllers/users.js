@@ -13,6 +13,23 @@ function showRoute(req, res, next) {
     .catch(next);
 }
 
+function updateRoute(req, res) {
+  User
+    .findById(req.params.id)
+    .then(user => {
+      if(!user) return res.status(401).json({ message: 'No user found'});
+
+      for(const field in req.body) {
+        user[field] = req.body[field];
+      }
+
+      return user.save();
+    })
+    .then(user => res.json(user))
+    .catch(() => res.status(500).json({ message: 'Something went wrong'}));
+}
+
 module.exports = {
-  show: showRoute
+  show: showRoute,
+  update: updateRoute
 };

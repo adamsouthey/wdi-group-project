@@ -11,6 +11,7 @@
       <h3><strong>Country:</strong> {{ vm.user.country }} </h3>
       <p><strong>Groups:</strong> {{ vm.user.groups.length }} </h3>
       <p><strong>Interests:</strong> {{vm.user.interests[0]}} || {{vm.user.interests[1]}} || {{vm.user.interests[2]}} || {{vm.user.interests[3]}} || {{vm.user.interests[4]}} || {{vm.user.interests[5]}} </p>
+      <button class="button is-danger" ui-sref="usersEdit({ id: vm.user.id })">Edit</button>
     </div>
 
     <div class="column is-two-third">

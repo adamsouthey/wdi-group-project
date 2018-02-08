@@ -1,0 +1,106 @@
+<section class="section">
+  <div class="columns">
+    <div class="column is-half is-offset-one-quarter">
+      <h1 class="title">Register</h1>
+      <form ng-submit="vm.update()" name="vm.registerForm">
+        <div class="field">
+          <label class="label" for="email">Username</label>
+          <p class="control">
+            <input class="input" type="text" name="username" id="username" ng-model="vm.user.username" value="vm.user.username" required>
+          </p>
+        </div>
+        <div class="field">
+          <label class="label" for="email">First Name</label>
+          <p class="control">
+            <input class="input" type="text" name="firstname" id="firstname" ng-model="vm.user.firstname" required>
+          </p>
+        </div>
+        <div class="field">
+          <label class="label" for="email">Last Name</label>
+          <p class="control">
+            <input class="input" type="text" name="lastname" id="lastname" ng-model="vm.user.lastname" required>
+          </p>
+        </div>
+        <div class="field">
+          <label class="label" for="email">Email</label>
+          <p class="control">
+            <input class="input" type="text" name="email" id="email" ng-model="vm.user.email" required>
+          </p>
+        </div>
+        <div class="field">
+          <label class="label" for="country">Country</label>
+          <p class="control">
+            <input class="input" type="text" name="country" id="country" ng-model="vm.user.country" required>
+          </p>
+        </div>
+
+        <div class="field">
+          <label class="label" for="password">Password</label>
+          <p class="control">
+            <input class="input" type="password" name="password" id="password" ng-model="vm.user.password" required>
+          </p>
+        </div>
+        <div class="field">
+          <label class="label" for="passwordConfirmation">Password Confirmation</label>
+          <p class="control">
+            <input class="input" type="password" name="passwordConfirmation" id="passwordConfirmation" ng-model="vm.user.passwordConfirmation" required>
+          </p>
+        </div>
+
+
+        <strong><label>What's are your interests?</label></strong><br />
+
+        <input type="checkbox" name="interests" id="technology" ng-click="vm.showInterests('technology')"/>
+        <label class="choice" for="technology">Technology</label><br />
+
+        <input type="checkbox" name="interests" value="business" id="business" ng-click="vm.showInterests('business')" />
+        <label class="choice" for="business">Business</label><br />
+
+        <input type="checkbox" name="interests" value="finance" id="finance" ng-click="vm.showInterests('finance')" />
+        <label class="choice" for="finance">Finance</label><br />
+
+        <input type="checkbox" name="interests" value="current_affairs" id="currentaffairs" ng-click="vm.showInterests('currentaffairs')" />
+        <label class="choice" for="current_affairs">Current Affairs</label><br />
+
+        <input type="checkbox" name="interests" value="travel" id="travel" ng-click="vm.showInterests('travel')" />
+        <label class="choice" for="travel">Travel</label><br />
+
+        <input type="checkbox" name="interests" value="sports" id="sports" ng-click="vm.showInterests('sports')" />
+        <label class="choice" for="sports">Sports</label>
+
+        <!-- //Image Upload -->
+        <div class="field">
+          <label class="label">Profile Picture</label>
+          <div class="control">
+            <div class="file">
+              <label class="file-label">
+                <input class="file-input" type="file" ng-model="vm.user.image" upload-image>
+                <span class="file-cta">
+                  <span class="file-icon">
+                    <i class="fa fa-upload"></i>
+                  </span>
+                  <span class="file-label">
+                    Choose a file…
+                  </span>
+                </span>
+              </label>
+            </div>
+          </div>
+          <div class="field" ng-if="vm.user.image">
+            <label class="label">Profile Picture Preview</label>
+            <div class="control">
+              <figure class="image is-128x128">
+                <img src="{{ vm.user.image }}">
+              </figure>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <p class="control">
+            <input type="submit" class="button is-danger is-fullwidth" value="Update">
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

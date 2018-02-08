@@ -24,7 +24,11 @@ router.route('/groups/:meetupId/comments/:commentId')
 
 // User request
 router.route('/users/:id')
-  .get(users.show);
+  .get(users.show)
+  .put(users.update);
+
+// router.route('/users/:id/edit')
+//   .get(users.edit);
 
 // Authentication
 router.route('/register')

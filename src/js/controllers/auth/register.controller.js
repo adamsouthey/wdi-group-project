@@ -17,14 +17,12 @@ function RegisterCtrl($auth, $state) {
   vm.submit = submit;
 
   function showInterests(interest) {
-
     if(vm.user.interests.indexOf(interest) === -1) {
       vm.user.interests.push(interest);
     } else {
       const index = vm.user.interests.indexOf(interest);
       vm.user.interests.splice(index, 1);
     }
-
   }
   vm.showInterests = showInterests;
 }

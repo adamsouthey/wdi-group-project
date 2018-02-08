@@ -13,7 +13,7 @@ function showRoute(req, res, next) {
     .catch(next);
 }
 
-function updateRoute(req, res) {
+function updateRoute(req, res, next) {
   User
     .findById(req.params.id)
     .then(user => {
@@ -23,10 +23,10 @@ function updateRoute(req, res) {
         user[field] = req.body[field];
       }
 
-      return user.save();
+      return user.save({ validateBeforeSave: false });
     })
     .then(user => res.json(user))
-    .catch(() => res.status(500).json({ message: 'Something went wrong'}));
+    .catch(next);
 }
 
 module.exports = {

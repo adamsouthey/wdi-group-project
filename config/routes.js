@@ -27,9 +27,6 @@ router.route('/users/:id')
   .get(users.show)
   .put(users.update);
 
-// router.route('/users/:id/edit')
-//   .get(users.edit);
-
 // Authentication
 router.route('/register')
   .post(auth.register);

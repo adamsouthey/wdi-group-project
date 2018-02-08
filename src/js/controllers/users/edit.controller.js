@@ -15,6 +15,18 @@ function UsersEditCtrl(User, $state) {
     User
       .update({ id: $state.params.id }, vm.user)
       .$promise
-      .then(() => $state.go('usersIndex'));
+      .then(user => $state.go('usersShow', { id: user.id }));
   }
+
+  function showInterests(interest) {
+    if(vm.user.interests.indexOf(interest) === -1) {
+      vm.user.interests.push(interest);
+    } else {
+      const index = vm.user.interests.indexOf(interest);
+      vm.user.interests.splice(index, 1);
+    }
+
+    console.log(vm.user.interests);
+  }
+  vm.showInterests = showInterests;
 }

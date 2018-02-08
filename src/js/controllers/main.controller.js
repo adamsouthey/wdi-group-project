@@ -32,6 +32,8 @@ function MainCtrl($transitions, $rootScope, $state, $auth) {
 
   });
 
+
+
   $rootScope.$on('error', (e, err) => {
     vm.message = err.data.message;
 

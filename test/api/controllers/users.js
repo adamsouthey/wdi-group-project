@@ -12,7 +12,7 @@ describe('Users Controller Tests', () => {
 
   describe('GET /api/users/:id', () => {
 
-    let user = null;
+    let user  = null;
     let token = null;
 
     beforeEach(done => {
@@ -29,7 +29,7 @@ describe('Users Controller Tests', () => {
           passwordConfirmation: 'password'
         })
         .end((err, res) => {
-          user = res.body.user;
+          user  = res.body.user;
           token = res.body.token;
           done();
         });

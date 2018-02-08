@@ -19,7 +19,7 @@ function googleMap($window) {
         const map = new $window.google.maps.Map(element[0], {
           zoom: 14,
           center: scope.center,
-          styles: [{'stylers': [{'hue': '#dd0d0d'}]},{'featureType': 'road','elementType': 'labels','stylers': [{'visibility':'off'}]},{'featureType': 'road','elementType': 'geometry','stylers': [{'lightness':100},{'visibility': 'simplified'}]}]
+          styles: [{'stylers': [{'hue': '#dd0d0d'}]},{'featureType': 'road','elementType': 'labels','stylers': [{'visibility': 'off'}]},{'featureType': 'road','elementType': 'geometry','stylers': [{'lightness': 100},{'visibility': 'simplified'}]}]
 
         });
 

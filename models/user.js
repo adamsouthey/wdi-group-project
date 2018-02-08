@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   country: { type: String, required: true },
   image: { type: String },
-  interests: [{ type: Object }]
+  interests: []
 });
 
 userSchema.virtual('groups', {

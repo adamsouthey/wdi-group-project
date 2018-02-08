@@ -97,11 +97,11 @@ section {
 
 div {
   .index-events {
-    margin-top: 5px;
+    margin-top: 15px;
     display: flex;
     &__date {
       margin-right: 20px;
-      border-radius: 10px;
+      // border-radius: 10px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -115,7 +115,7 @@ div {
       &__top {
         background-color: hsl(348, 100%, 61%);
         color: white;
-        padding: 4px 8px;
+        // padding: 4px 8px;
       }
       &__bottom {
         display: flex;
@@ -128,6 +128,10 @@ div {
     }
   }
 
+}
+
+.index-events-margin{
+  margin-top: 15px;
 }
 
 // HOMEPAGE

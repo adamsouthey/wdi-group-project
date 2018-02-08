@@ -13,15 +13,13 @@ div {
   }
 }
 
-.google-map{
+// GOOGLE MAP DIRECTIVE
+.google-map {
   height: 400px;
   width: 400px;
 }
 
-
-
 // INDEX PAGE
-
 section {
   div {
     &.height-hero {
@@ -29,6 +27,27 @@ section {
       background-image: url('../images/marc-olivier-jodoin-291607.jpg');
       background-size: auto;
       background-position: center;
+    }
+    div {
+      h1 {
+        &.logo-index {
+          margin-bottom: 30px;
+        }
+        &.logo-index:before {
+          content: 'social';
+          color: white;
+          font-size: 60px;
+          font-weight: bold;
+          font-family: 'Libre Baskerville', serif;
+        }
+        &.logo-index:after {
+          content: 'city';
+          color: #969696;
+          font-size: 60px;
+          font-weight: bold;
+          font-family: 'Libre Baskerville', serif;
+        }
+      }
     }
     div {
       form {
@@ -104,7 +123,6 @@ section {
     }
   }
 }
-
 
 // PROFILE PAGE - USERS SHOW
 

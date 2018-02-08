@@ -20,4 +20,5 @@ function UsersShowCtrl(User, $state, $http) {
       });
 
   }
+
 }

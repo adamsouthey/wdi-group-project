@@ -1,3 +1,5 @@
+
+
 // EVENT SHOW PAGE
 div {
   &.show-page-container {
@@ -161,6 +163,10 @@ section {
 }
 
 // PROFILE PAGE - USERS SHOW
+
+.capitalize {
+  text-transform: capitalize;
+}
 
 div {
   &.user-groups {

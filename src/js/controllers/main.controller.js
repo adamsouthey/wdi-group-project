@@ -20,6 +20,7 @@ function MainCtrl($transitions, $rootScope, $state, $auth) {
   $transitions.onSuccess({}, (transition) => {
     // closes the mobile menu each time the state changes
     vm.menuIsOpen = false;
+    vm.burgerMenuOpen = false;
     // attaches the state name to the main controller to be used as a class name on the body
     vm.pageName = transition.to().name;
 
@@ -29,6 +30,7 @@ function MainCtrl($transitions, $rootScope, $state, $auth) {
       vm.currentUserId = $auth.getPayload().userId;
       vm.currentUserGroups = $auth.getPayload().groups;
     }
+
 
   });
 

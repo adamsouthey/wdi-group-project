@@ -28,37 +28,37 @@
     </div>
     <div id="navbarMenu" class="navbar-menu" ng-class="{ 'is-active': main.burgerMenuOpen }">
       <div class="navbar-end">
-        <a class="navbar-item hover-change" ui-sref="home" ng-click="main.burgerMenuOpen = false">
+        <a class="navbar-item hover-change" ui-sref="home">
           <span class="icon">
             <i class="fa fa-home"></i>
           </span>
           Home
         </a>
-        <a class="navbar-item hover-change" ui-sref="groupsIndex" ng-if="main.isAuthenticated()" ng-click="main.burgerMenuOpen = false">
+        <a class="navbar-item hover-change" ui-sref="groupsIndex" ng-if="main.isAuthenticated()">
           <span class="icon">
             <i class="fa fa-calendar"></i>
           </span>
           Events
         </a>
-        <a class="navbar-item hover-change" ui-sref="usersShow({ id: main.currentUserId })" ng-if="main.isAuthenticated()" ng-click="main.burgerMenuOpen = false">
+        <a class="navbar-item hover-change" ui-sref="usersShow({ id: main.currentUserId })" ng-if="main.isAuthenticated()">
           <span class="icon">
             <i class="fa fa-user"></i>
           </span>
           Profile
         </a>
-        <a class="navbar-item hover-change" ui-sref="login" ng-if="!main.isAuthenticated()" ng-click="main.burgerMenuOpen = false">
+        <a class="navbar-item hover-change" ui-sref="login" ng-if="!main.isAuthenticated()">
           <span class="icon">
             <i class="fa fa-sign-in-alt"></i>
           </span>
           Login
         </a>
-        <a class="navbar-item hover-change" ui-sref="register" ng-if="!main.isAuthenticated()" ng-click="main.burgerMenuOpen = false">
+        <a class="navbar-item hover-change" ui-sref="register" ng-if="!main.isAuthenticated()">
           <span class="icon">
             <i class="fa fa-user-plus"></i>
           </span>
           Register
         </a>
-        <a class="navbar-item hover-change" ui-sref="/" ng-click="main.logout()" ng-if="main.isAuthenticated()" ng-click="main.burgerMenuOpen = false">
+        <a class="navbar-item hover-change" ui-sref="/" ng-click="main.logout()" ng-if="main.isAuthenticated()">
           <span class="icon">
             <i class="fa fa-sign-out-alt"></i>
           </span>

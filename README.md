@@ -8,9 +8,8 @@ For our third project we have created an online platform for users to find meetu
 
 [**Heroku**]()
 
-[**Amadea Kimmin's GitHub**](https://github.com/amadeakimmins/wdi-group-project)   
-[**Will Stearn's GitHub**](https://github.com/willstearn/wdi-group-project)  	
-[**Adam Southey's GitHub**](https://github.com/adamsouthey/wdi-group-project)  
+[**GitHub Repository**](https://github.com/amadeakimmins/wdi-group-project.git)   
+
 
 
 ---
@@ -81,7 +80,7 @@ Wireframes:
 
 ### Trello
 
-We used Trello throughout the project in order to keep track of what we needed to do and what we had already completed. This allowed us to prioritise and to make sure we completed the project on time. The screenshot below was taken early on in the project.
+We used Trello to make a thorough plan of all the tasks we had to do and to divide the work evenly between us. It allowed us to keep track and to keep on top of what we needed to do. The screenshot below was taken early on in the project.
 
 Trello Screenshot:
 ![trello](https://user-images.githubusercontent.com/32818032/36024585-1104873e-0d88-11e8-9b25-2e1aa6de948c.png)
@@ -115,18 +114,19 @@ Event View Page Comments:
 
 ### Challenges and Problems
 
-- The main challenge at the beginning was planning out the whole project. Because I wanted to use a lot of different resources as well as creating a users Wishlist's page it took me quite a while to get my head round it. Once I had figured out how it would all be laid out it was pretty straight forward getting the main functionality working.
+- It was challenging at first to figure out the step-by-step process of building the app and inputting this into our Trello board so that we could divide the work and have a solid plan.
 
--  API'S: I found implementing the API's for Films and TV Series challenging as I had never done this properly before. I had to get quite a lot help for the first one but when implementing the second one it was a lot easier. When implementing them in future I think I will be a lot more capable.
-  - The main challenge with this was being able to select a specific film or tv series out of the API and then to attach it to the user in order to then take that data and push it onto their Wishlist page.
+-  The meetup API was harder to implement than we thought it would be originally and took us longer than we expected to get it working and to find the correct url needed to get the response we wanted. Making a proxy request was challenging as it required a more intricate setup.
+
+- The functionality behind a logged in user joining an existing meetup event from the API and displaying the single event on the show page was also more complicated than we originally expected. We had to save the information from the API we wished to display on the page.
 
 ---
 
 ### Wins
 
-- I am happy with how the project has turned out and really happy that I managed to include two API's for the films and TV series.
+- The project seemed to flow very smoothly with no disagreements. We had frequent stand ups to discuss what we had achieved and what we were working on and what we were finding difficult. We worked really efficiently in a team and generally managed to meet our targets in time. We communicated frequently over slack which meant we always knew what the other team mate was working on.
 
-- I found the main functionality of the views to be relatively straightforward and managed to get it done pretty quickly.
+- We are proud of all the functionality that we have produced in the project as well as the styling.
 
 ---
 
@@ -134,19 +134,8 @@ Event View Page Comments:
 
 Features I would have liked to include:
 
-- I originally planned on using an API for books, restaurants and podcasts as well so that users could search from their databases for the ones they would like to add to their Wishlist. However, I ran out of time so I would to add these.
+- Expanding the app to give the user the ability to suggest restuarants, bars and activities, nearby the events or associated with them, on the groups that they join in the comment section.
 
-- A page so that the user can add the completed items on the Wishlist to a 'Done' page so that they have a record of them. They can then rate and comment on these for future reference.
+- Support real-time messaging - allow users to message each other over the app.
 
-- The ability to view other users Wishlist's and thus be able to follow other people's. Then I would like to make it possible for users to comment and rate each other's items on their Wishlist's.
-
-- A page so that users can view the trending films and TV series, the best selling books and the most popular restaurants and podcasts.
-
-- A slick carousel for the TV series as well as the films.
-
-
-Add CommentCollapse 
-Jump
-Mark as read (esc)
-
-Message @Adam Southey
+- Link the app to city mapper so that users can get a route from their current location to the event.

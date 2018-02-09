@@ -11,23 +11,23 @@ User
   .create([{
     username: 'amadea',
     email: 'amadea@ga.co',
-    firstname: 'amadea',
-    lastname: 'amadea',
+    firstname: 'Amadea',
+    lastname: 'Kimmins',
     country: 'England',
     password: 'password',
     passwordConfirmation: 'password'
   }, {
     username: 'adam',
-    firstname: 'adam',
-    lastname: 'adam',
+    firstname: 'Adam',
+    lastname: 'Southey',
     email: 'adam@ga.co',
     country: 'England',
     password: 'password',
     passwordConfirmation: 'password'
   }, {
     username: 'will',
-    firstname: 'will',
-    lastname: 'will',
+    firstname: 'Will',
+    lastname: 'Stearn',
     email: 'will@ga.co',
     country: 'England',
     password: 'password',

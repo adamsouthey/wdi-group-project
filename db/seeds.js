@@ -13,6 +13,7 @@ User
     email: 'amadea@ga.co',
     firstname: 'amadea',
     lastname: 'amadea',
+    country: 'England',
     password: 'password',
     passwordConfirmation: 'password'
   }, {
@@ -20,6 +21,7 @@ User
     firstname: 'adam',
     lastname: 'adam',
     email: 'adam@ga.co',
+    country: 'England',
     password: 'password',
     passwordConfirmation: 'password'
   }, {
@@ -27,6 +29,7 @@ User
     firstname: 'will',
     lastname: 'will',
     email: 'will@ga.co',
+    country: 'England',
     password: 'password',
     passwordConfirmation: 'password'
   }])

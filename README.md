@@ -6,9 +6,9 @@
 
 For our third project we have created an online platform for users to find meetup groups at their chosen location and meet people with similar interests. The application supports worldwide searches and displays the meetup location on a map.
 
-[**Heroku**]()
+[**Heroku**](https://social-city.herokuapp.com/)
 
-[**GitHub Repository**](https://github.com/amadeakimmins/wdi-group-project.git)   
+[**GitHub Repository**](https://github.com/adamsouthey/wdi-group-project.git)   
 
 
 

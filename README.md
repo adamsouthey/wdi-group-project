@@ -6,6 +6,26 @@
 
 For our third project we have created an online platform for users to find meetup groups at their chosen location and meet people with similar interests. The application supports worldwide searches and displays the meetup location on a map.
 
+### Project Brief
+
+Your app must:
+
+- Use Mongo, Express and Node to build an API and a Angular front-end app that consumes it
+- Create an API using at least 2 related models, one of which should be a user
+- Include all major CRUD functions in a RESTful API for at least one of those model
+- **API must include tests for the authentication and resful routes
+- Consume your own API by making your front-end app with Angular using some 3rd party dependencies such as ui.router and ng-resource
+- Add authentication to your API to restrict access to appropriate users
+- Craft thoughtful user stories together, as a team
+- Manage team contributions and collaboration using a standard Git flow on Github
+- Layout and style your front-end with clean & well-formatted CSS
+- Deploy your application online so it's publically accessible
+- A working API, built by the whole team, hosted somewhere on the internet
+- A Anguar front-end that consumes your own API, hosted somewhere on the internet
+- A link to your hosted working app in the URL section of your Github repo
+- A team git repository hosted on Github, with a link to your hosted project, and frequent commits from every team member dating back to the very beginning of the project
+- A readme.md file
+
 [**Heroku**](https://social-city.herokuapp.com/)
 
 [**GitHub Repository**](https://github.com/adamsouthey/wdi-group-project.git)   
